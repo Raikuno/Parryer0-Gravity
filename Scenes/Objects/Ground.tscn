@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://xgbyun8ral8w"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tni6j"]
+absorbent = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_wk4fy"]
+size = Vector2(640, 32)
+
+[sub_resource type="Curve" id="Curve_wobbp"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_620f6"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.917582, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_w612i"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.527473, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_k2rjg"]
+curve_x = SubResource("Curve_wobbp")
+curve_y = SubResource("Curve_620f6")
+curve_z = SubResource("Curve_w612i")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bo4qi"]
+size = Vector2(640, 34)
+
+[node name="Ground" type="StaticBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_tni6j")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+mesh = SubResource("QuadMesh_wk4fy")
+texture = SubResource("CurveXYZTexture_k2rjg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bo4qi")
+debug_color = Color(0, 0.6, 0.709804, 0.419608)
