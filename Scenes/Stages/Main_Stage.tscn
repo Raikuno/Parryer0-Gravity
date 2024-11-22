@@ -6,10 +6,10 @@
 [node name="Main_Stage" type="Node2D"]
 
 [node name="Ground" parent="." instance=ExtResource("1_ekups")]
-position = Vector2(160, 16)
+position = Vector2(185, 17)
 
 [node name="Ground2" parent="." instance=ExtResource("1_ekups")]
-position = Vector2(159, 628)
+position = Vector2(187, 628)
 
 [node name="Player" parent="." instance=ExtResource("2_jgx66")]
 position = Vector2(79, 578)

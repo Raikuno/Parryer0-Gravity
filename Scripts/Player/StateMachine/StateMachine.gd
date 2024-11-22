@@ -18,6 +18,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	#Borrar antes de publicar. Funcion para saber el estado de la maquina actual
+	if(Input.is_action_just_pressed("debug")):
+		print(current_state.name)
 	current_state.process(delta)
 
 func swapState(old:String, new:String):

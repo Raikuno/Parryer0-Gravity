@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name My_Player
 
 @export var state_machine:State_Machine
-var jump_strength = -1000.0
+var jump_strength = -500.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var can_parry = true
@@ -22,6 +22,10 @@ func _physics_process(delta):
 	#else:
 	#	velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
+	if(Input.is_action_just_pressed("debug")):
+		print(is_on_floor())
+		print(is_on_ceiling())
+	
 
 func resetParry():
 	can_parry = true
