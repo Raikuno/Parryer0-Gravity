@@ -17,9 +17,13 @@ config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=480
+window/size/viewport_width=888
 window/size/viewport_height=640
 window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg")
 
 [input]
 
