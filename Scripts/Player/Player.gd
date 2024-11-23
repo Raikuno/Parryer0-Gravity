@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name My_Player
 
 @export var state_machine:State_Machine
+@export var lifeIsNot4 = 5
 var jump_strength = -500.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -39,6 +40,11 @@ func invertGravity():
 	velocity.y += jump_strength
 	jump_strength *= -1
 
-
-func _on_area_2d_body_entered(body):
-	hit.emit()
+func _on_area_2d_area_entered(area):
+	print(state_machine.current_state.name)
+	if state_machine.current_state.name == "Parry": #Jorge te encargo hacer esto de forma menos guarra, esto es solo una prueba de concepto
+		print("LO PARREASTE PERRO")
+	else:
+		lifeIsNot4 = lifeIsNot4 - 1
+		print(lifeIsNot4)
+		hit.emit()
