@@ -6,6 +6,7 @@ var jump_strength = -500.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var can_parry = true
+signal hit
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -37,3 +38,7 @@ func invertGravity():
 	gravity *= -1
 	velocity.y += jump_strength
 	jump_strength *= -1
+
+
+func _on_area_2d_body_entered(body):
+	hit.emit()

@@ -9,3 +9,7 @@ func _on_fireball_timer_timeout():
 	fireballLocation.progress_ratio = randf()
 	fireball.position = fireballLocation.position
 	add_child(fireball)
+
+
+func _on_player_hit():
+	print("GOLPIADO PUTO")

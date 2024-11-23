@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dbe7cfdjrjnp"]
+[gd_scene load_steps=16 format=3 uid="uid://dbe7cfdjrjnp"]
 
 [ext_resource type="Script" path="res://Scripts/Player/StateMachine/StateMachine.gd" id="1_8xirw"]
 [ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_qty2n"]
@@ -29,6 +29,9 @@ curve_z = SubResource("Curve_7lxpc")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jb8gg"]
 size = Vector2(28, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g5haq"]
+size = Vector2(40, 23.5)
 
 [sub_resource type="Animation" id="Animation_8uq62"]
 length = 0.001
@@ -72,9 +75,16 @@ mesh = SubResource("QuadMesh_rhkda")
 texture = SubResource("CurveXYZTexture_kmyv4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_jb8gg")
 one_way_collision_margin = 0.0
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 0.75)
+shape = SubResource("RectangleShape2D_g5haq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -97,3 +107,5 @@ assigned_character = NodePath("../..")
 script = ExtResource("6_ytnbd")
 animation_player = NodePath("../../AnimationPlayer")
 assigned_character = NodePath("../..")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

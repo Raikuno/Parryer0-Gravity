@@ -4,10 +4,11 @@ extends CharacterBody2D
 @export var base_velocity_max = 5
 
 func _ready():
+	var randomScale = randf_range(1.5,3)
+	scale = Vector2(randomScale,randomScale)
 	velocity = Vector2(randf_range(base_velocity_min, base_velocity_max), 0.0);
 	
 func _physics_process(delta):
-	print(position.x)
 	position.x = position.x - velocity.x
 	move_and_slide()
 	

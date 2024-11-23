@@ -35,4 +35,5 @@ rotation = 1.56895
 wait_time = 0.7
 autostart = true
 
+[connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="timeout" from="FireballTimer" to="." method="_on_fireball_timer_timeout"]
