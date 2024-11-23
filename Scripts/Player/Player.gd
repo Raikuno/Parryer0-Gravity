@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name My_Player
 
 @export var state_machine:State_Machine
-@export var lifeIsNot4 = 5
+@export var life = 5
 var jump_strength = -500.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -27,7 +27,6 @@ func _physics_process(delta):
 	if(Input.is_action_just_pressed("debug")):
 		print(is_on_floor())
 		print(is_on_ceiling())
-	
 
 func resetParry():
 	can_parry = true
@@ -40,11 +39,17 @@ func invertGravity():
 	velocity.y += jump_strength
 	jump_strength *= -1
 
-func _on_area_2d_area_entered(area):
-	print(state_machine.current_state.name)
-	if state_machine.current_state.name == "Parry": #Jorge te encargo hacer esto de forma menos guarra, esto es solo una prueba de concepto
-		print("LO PARREASTE PERRO")
-	else:
-		lifeIsNot4 = lifeIsNot4 - 1
-		print(lifeIsNot4)
-		hit.emit()
+func damage_player(dmg_amount:int, enable_hit_stop = false, hit_stop_new_time = 1.0, hit_stop_duration = 0.0):
+	life -= dmg_amount
+	if(enable_hit_stop):
+		hit_stop(hit_stop_new_time, hit_stop_duration)
+
+func parry_collision(area:Area2D):
+	if(area is EnemyType):
+		area.destroy()
+		hit_stop(0.05, 0.1)
+
+func hit_stop(newTime:float, duration:float):
+	Engine.time_scale = newTime
+	await get_tree().create_timer(duration, true, false, true).timeout
+	Engine.time_scale = 1

@@ -1,39 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://dc6bu52vi04kx"]
+[gd_scene load_steps=4 format=3 uid="uid://dc6bu52vi04kx"]
 
 [ext_resource type="PackedScene" uid="uid://xgbyun8ral8w" path="res://Scenes/Objects/Ground.tscn" id="1_ekups"]
-[ext_resource type="Script" path="res://Scripts/Main/Main_Stage.gd" id="1_ot68h"]
-[ext_resource type="PackedScene" uid="uid://daduy2bk4jkd0" path="res://Scenes/Objects/Fireball.tscn" id="2_f55bp"]
 [ext_resource type="PackedScene" uid="uid://dbe7cfdjrjnp" path="res://Scenes/Objects/Player.tscn" id="2_jgx66"]
-
-[sub_resource type="Curve2D" id="Curve2D_h6j1g"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 886, 44, 0, 0, 0, 0, 887, 587)
-}
-point_count = 2
+[ext_resource type="PackedScene" uid="uid://duquydojdjjt1" path="res://Scenes/Objects/FireballGenerator.tscn" id="3_iytkg"]
 
 [node name="Main_Stage" type="Node2D"]
-script = ExtResource("1_ot68h")
-fireball_scene = ExtResource("2_f55bp")
 
 [node name="Ground" parent="." instance=ExtResource("1_ekups")]
-position = Vector2(185, 17)
+position = Vector2(350, 16)
 
 [node name="Ground2" parent="." instance=ExtResource("1_ekups")]
-position = Vector2(187, 628)
+position = Vector2(352, 622)
 
 [node name="Player" parent="." instance=ExtResource("2_jgx66")]
 position = Vector2(79, 578)
 
-[node name="FireballSpawn" type="Path2D" parent="."]
-curve = SubResource("Curve2D_h6j1g")
-
-[node name="FireballSpawner" type="PathFollow2D" parent="FireballSpawn"]
-position = Vector2(886, 44)
-rotation = 1.56895
-
-[node name="FireballTimer" type="Timer" parent="."]
-wait_time = 0.7
-autostart = true
+[node name="FireballGenerator" parent="." instance=ExtResource("3_iytkg")]
 
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
-[connection signal="timeout" from="FireballTimer" to="." method="_on_fireball_timer_timeout"]
