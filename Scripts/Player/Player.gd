@@ -46,7 +46,7 @@ func damage_player(dmg_amount:int, enable_hit_stop = false, hit_stop_new_time = 
 
 func parry_collision(area:Area2D):
 	if(area is EnemyType):
-		area.destroy()
+		area.destroy() #Aquí supongo que es donde tenemo que mandar una señal o algo para la animacion? no sé hacelo tú
 		hit_stop(0.05, 0.1)
 
 func hit_stop(newTime:float, duration:float):

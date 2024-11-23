@@ -1,7 +1,7 @@
 extends Area2D
 class_name EnemyType
 
-signal hitPlayer
+signal hitPlayer(body:Node2D)
 signal enemyParry
 
 func destroy():
@@ -9,5 +9,5 @@ func destroy():
 
 func player_hitted(body:Node2D):
 	if(body is My_Player):
-		hitPlayer.emit()
+		hitPlayer.emit(body)
 		body.damage_player(1, true, 0.01, 0.3)
