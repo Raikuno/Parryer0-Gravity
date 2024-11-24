@@ -37,9 +37,13 @@ func _on_enemy_parry():
 	#var opposite_position = global_position - (body.global_position - global_position)
 	var random = randf_range(-1.0,1.0)
 	#object_speed = 0 
-	y_speed = random * object_speed
+	y_speed = random * -object_speed
+	object_speed *= -1
+	scale.x *= -1
 	rotate(random)
-	await get_tree().create_timer(0.05).timeout
+	await get_tree().create_timer(0.4).timeout
 	hitbox_node.set_deferred("disabled",true)
 	animation_node.play("explotion_parry")
+	object_speed = 0
+	y_speed = 0
 	#sprite.look_at(opposite_position)
