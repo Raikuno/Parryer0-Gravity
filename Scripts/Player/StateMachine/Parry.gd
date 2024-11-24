@@ -29,7 +29,7 @@ func parry_ended(anim_name:String):
 func parry_collision(area:Area2D):
 	if(area is EnemyType && !area.being_parried):
 		parry_sound.play()
-		area.parried()
+		area.parried(assigned_character)
 		if(area.can_bounce()):
 			assigned_character.invertGravity()
 		assigned_character.resetParry()
