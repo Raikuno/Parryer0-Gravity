@@ -11,7 +11,7 @@
 position = Vector2(271, 20)
 
 [node name="Ground2" parent="." instance=ExtResource("1_ekups")]
-position = Vector2(267, 782)
+position = Vector2(239, 884)
 
 [node name="Player" parent="." instance=ExtResource("2_jgx66")]
 position = Vector2(86, 721)
@@ -19,10 +19,10 @@ position = Vector2(86, 721)
 [node name="FireballGenerator" parent="." instance=ExtResource("3_iytkg")]
 
 [node name="BoxGenerator" parent="." instance=ExtResource("5_ayp10")]
-position = Vector2(480, 700)
+position = Vector2(480, 750)
 
 [node name="BoxGenerator2" parent="." instance=ExtResource("5_ayp10")]
-position = Vector2(480, 100)
+position = Vector2(480, 150)
 invert_gravity = true
 
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
