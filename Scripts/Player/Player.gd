@@ -3,6 +3,7 @@ class_name My_Player
 
 @export var state_machine:State_Machine
 @export var life = 5
+@export var hit_sound:AudioStreamPlayer
 var jump_strength = -500.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -40,6 +41,7 @@ func invertGravity():
 	jump_strength *= -1
 
 func damage_player(dmg_amount:int, enable_hit_stop = false, hit_stop_new_time = 1.0, hit_stop_duration = 0.0):
+	hit_sound.play()
 	life -= dmg_amount
 	if(enable_hit_stop):
 		hit_stop(hit_stop_new_time, hit_stop_duration)

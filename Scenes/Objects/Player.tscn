@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dbe7cfdjrjnp"]
+[gd_scene load_steps=18 format=3 uid="uid://dbe7cfdjrjnp"]
 
 [ext_resource type="Script" path="res://Scripts/Player/StateMachine/StateMachine.gd" id="1_8xirw"]
 [ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_qty2n"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://Scripts/Player/StateMachine/Ground.gd" id="3_vq5th"]
 [ext_resource type="Script" path="res://Scripts/Player/StateMachine/Air.gd" id="4_6u2hp"]
 [ext_resource type="Script" path="res://Scripts/Player/StateMachine/Parry.gd" id="6_ytnbd"]
+[ext_resource type="AudioStream" uid="uid://diso5st365mkc" path="res://Resources/Sounds/parry_sound_placeholder.wav" id="7_y5x8p"]
+[ext_resource type="AudioStream" uid="uid://cdoq5j6c0glwk" path="res://Resources/Sounds/hit_sound_placeholder.wav" id="8_wgyxo"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_rhkda"]
 size = Vector2(32, 32)
@@ -66,11 +68,12 @@ _data = {
 "parry_test": ExtResource("2_l4blo")
 }
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("state_machine")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("state_machine", "hit_sound")]
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_qty2n")
 state_machine = NodePath("StateMachine")
+hit_sound = NodePath("HitTEMP")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 mesh = SubResource("QuadMesh_rhkda")
@@ -105,10 +108,19 @@ assigned_character = NodePath("../..")
 script = ExtResource("4_6u2hp")
 assigned_character = NodePath("../..")
 
-[node name="Parry" type="Node" parent="StateMachine" node_paths=PackedStringArray("animation_player", "parry_hitbox", "assigned_character")]
+[node name="Parry" type="Node" parent="StateMachine" node_paths=PackedStringArray("animation_player", "parry_hitbox", "parry_sound", "assigned_character")]
 script = ExtResource("6_ytnbd")
 animation_player = NodePath("../../AnimationPlayer")
 parry_hitbox = NodePath("../../AreaOfParry/ParryHitbox")
+parry_sound = NodePath("../../ParryTEMP")
 assigned_character = NodePath("../..")
+
+[node name="ParryTEMP" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_y5x8p")
+volume_db = -20.0
+
+[node name="HitTEMP" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_wgyxo")
+volume_db = -20.0
 
 [connection signal="area_entered" from="AreaOfParry" to="StateMachine/Parry" method="parry_collision"]
