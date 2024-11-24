@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfa1w0k7m4liu"]
+
+[ext_resource type="Script" path="res://Scripts/Obstacles/Box/BoxGenerator.gd" id="1_80wts"]
+[ext_resource type="PackedScene" uid="uid://wtkgvp1y6rve" path="res://Scenes/Objects/Enemies/BoxEnemy.tscn" id="2_gvsg1"]
+
+[node name="BoxGenerator" type="Node2D"]
+script = ExtResource("1_80wts")
+box_enemy = ExtResource("2_gvsg1")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

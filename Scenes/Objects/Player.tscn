@@ -69,8 +69,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("state_machine", "hit_sound")]
-collision_layer = 3
-collision_mask = 3
+collision_mask = 6
 script = ExtResource("1_qty2n")
 state_machine = NodePath("StateMachine")
 hit_sound = NodePath("HitTEMP")
@@ -85,7 +84,7 @@ one_way_collision_margin = 0.0
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="AreaOfParry" type="Area2D" parent="."]
-collision_layer = 3
+collision_mask = 2
 
 [node name="ParryHitbox" type="CollisionShape2D" parent="AreaOfParry"]
 shape = SubResource("RectangleShape2D_g5haq")

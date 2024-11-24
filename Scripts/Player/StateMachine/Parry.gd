@@ -9,13 +9,13 @@ func onEnter():
 		animation_player.animation_finished.connect(parry_ended)
 	assigned_character.disableParry()
 	animation_player.play("parry_test")
-	assigned_character.set_collision_layer_value(2, false)
+	assigned_character.set_collision_layer_value(1, false)
 	parry_hitbox.set_deferred("disabled", false)
 
 #(Override) Anula la funcion de State
 func onExited():
 	animation_player.play("RESET")
-	assigned_character.set_collision_layer_value(2, true)
+	assigned_character.set_collision_layer_value(1, true)
 	parry_hitbox.set_deferred("disabled", true)
 
 #(Override) Anula la funcion de State
@@ -27,9 +27,11 @@ func parry_ended(anim_name:String):
 		state_swap.emit(name, "air")
 
 func parry_collision(area:Area2D):
-	if(area is EnemyType):
+	if(area is EnemyType && !area.being_parried):
 		parry_sound.play()
 		area.parried()
+		if(area.can_bounce()):
+			assigned_character.invertGravity()
 		assigned_character.resetParry()
 		assigned_character.hit_stop(0.05, 0.2)
 		state_swap.emit(name, "air")

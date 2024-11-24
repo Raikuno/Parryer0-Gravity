@@ -27,6 +27,8 @@ curve_z = SubResource("Curve_w612i")
 size = Vector2(640, 34)
 
 [node name="Ground" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 7
 physics_material_override = SubResource("PhysicsMaterial_tni6j")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
