@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://daduy2bk4jkd0"]
 
 [ext_resource type="Script" path="res://Scripts/Obstacles/Fireball/Fireball.gd" id="1_br5sr"]
-[ext_resource type="Texture2D" uid="uid://da14nb3o4ld43" path="res://Scenes/Objects/FireballV3.png" id="2_01ejn"]
+[ext_resource type="Texture2D" uid="uid://da14nb3o4ld43" path="res://Resources/Aseprite/FireballV3.png" id="2_0t32j"]
 
 [sub_resource type="Animation" id="Animation_c75qm"]
 length = 0.8
@@ -60,7 +60,7 @@ _data = {
 size = Vector2(15, 10)
 
 [node name="Fireball" type="Area2D" node_paths=PackedStringArray("animation_node", "sprite", "hitbox_node")]
-collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_br5sr")
 animation_node = NodePath("AnimationPlayer")
 sprite = NodePath("Sprite2D")
@@ -68,9 +68,10 @@ hitbox_node = NodePath("Hitbox")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("2_01ejn")
+texture = ExtResource("2_0t32j")
 hframes = 6
 vframes = 5
+frame = 9
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -106,5 +107,6 @@ position = Vector2(-3.5, 0)
 shape = SubResource("RectangleShape2D_gc8fi")
 
 [connection signal="body_entered" from="." to="." method="player_hitted"]
+[connection signal="enemyParry" from="." to="." method="_on_enemy_parry"]
 [connection signal="hitPlayer" from="." to="." method="_on_hit_player"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

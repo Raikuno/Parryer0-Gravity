@@ -47,6 +47,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerHitbox:shape:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(28, 28)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_aljx1"]
 _data = {
@@ -55,6 +67,8 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("state_machine")]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_qty2n")
 state_machine = NodePath("StateMachine")
 
@@ -68,7 +82,7 @@ one_way_collision_margin = 0.0
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="AreaOfParry" type="Area2D" parent="."]
-collision_mask = 2
+collision_layer = 3
 
 [node name="ParryHitbox" type="CollisionShape2D" parent="AreaOfParry"]
 shape = SubResource("RectangleShape2D_g5haq")
@@ -91,11 +105,10 @@ assigned_character = NodePath("../..")
 script = ExtResource("4_6u2hp")
 assigned_character = NodePath("../..")
 
-[node name="Parry" type="Node" parent="StateMachine" node_paths=PackedStringArray("animation_player", "player_hitbox", "parry_hitbox", "assigned_character")]
+[node name="Parry" type="Node" parent="StateMachine" node_paths=PackedStringArray("animation_player", "parry_hitbox", "assigned_character")]
 script = ExtResource("6_ytnbd")
 animation_player = NodePath("../../AnimationPlayer")
-player_hitbox = NodePath("../../PlayerHitbox")
 parry_hitbox = NodePath("../../AreaOfParry/ParryHitbox")
 assigned_character = NodePath("../..")
 
-[connection signal="area_entered" from="AreaOfParry" to="." method="parry_collision"]
+[connection signal="area_entered" from="AreaOfParry" to="StateMachine/Parry" method="parry_collision"]

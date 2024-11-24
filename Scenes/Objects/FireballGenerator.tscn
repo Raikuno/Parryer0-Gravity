@@ -5,7 +5,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_t1erg"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 886, 44, 0, 0, 0, 0, 885, 338, 0, 0, 0, 0, 887, 587)
+"points": PackedVector2Array(0, 0, 0, 0, 886, 90, 0, 0, 0, 0, 885, 338, 0, 0, 0, 0, 887, 530)
 }
 point_count = 3
 
@@ -16,8 +16,8 @@ fireball_scene = ExtResource("2_brslm")
 fireballLocation = NodePath("FireballSpawner")
 
 [node name="FireballSpawner" type="PathFollow2D" parent="."]
-position = Vector2(886, 44)
-rotation = 1.5742
+position = Vector2(886, 90)
+rotation = 1.57483
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
