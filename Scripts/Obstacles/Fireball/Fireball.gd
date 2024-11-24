@@ -32,7 +32,8 @@ func _on_animation_player_animation_finished(anim_name : String):
 	if anim_name == "explotion" or anim_name == "explotion_parry":
 		destroy()
 
-#Esto esta hecho un poco para testear, son las 4:30 de la mañana, me duele la cabeza y tengo 0 motivo para no dejar esto para mañana
+# Esto esta hecho un poco para testear, son las 4:30 de la mañana, me duele la cabeza y tengo 0 motivo para no dejar esto para mañana
+# Veo bien conservar la mecánica que metí que detecte donde está el jugador y la bala explote en esa dirección, no veo motivo para no dejarla, luego lo hablamos.
 func _on_enemy_parry():
 	#var opposite_position = global_position - (body.global_position - global_position)
 	var random = randf_range(-1.0,1.0)
