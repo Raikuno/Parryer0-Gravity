@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwn00rgolturm"]
+
+[ext_resource type="Script" path="res://Scenes/Objects/Background.gd" id="1_xrb7q"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_i27e3"]
+load_path = "res://.godot/imported/BackgroundStarsV2.png-7f7a68b47e3b284d8acdb221c0cdab80.ctex"
+
+[sub_resource type="Animation" id="Animation_4cmn5"]
+length = 2.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ParallaxBackground/ParallaxLayer/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.12, 0.24, 0.36, 0.48, 0.6, 0.72, 0.84, 0.96, 1.08, 1.2, 1.32, 1.44, 1.56, 1.68, 1.8, 1.92, 2.04, 2.16, 2.28),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n132b"]
+_data = {
+"default": SubResource("Animation_4cmn5")
+}
+
+[node name="Background" type="Node2D" node_paths=PackedStringArray("sprite", "timer")]
+script = ExtResource("1_xrb7q")
+sprite = NodePath("ParallaxBackground/ParallaxLayer/Sprite2D")
+timer = NodePath("Timer")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_filter = 1
+position = Vector2(264, 453)
+texture = SubResource("CompressedTexture2D_i27e3")
+hframes = 5
+vframes = 4
+metadata/_aseprite_wizard_interface_config_ = {
+"output_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 0,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://Resources/Aseprite",
+"o_name": "",
+"only_visible": false,
+"player": "Background/AnimationPlayer",
+"slice": "",
+"source": "res://Resources/Aseprite/BackgroundStarsV2.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "f3eeb0fd6dd8871cd4e5a551549edb18"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/ParallaxLayer"]
+root_node = NodePath("../../..")
+libraries = {
+"": SubResource("AnimationLibrary_n132b")
+}
+autoplay = "default"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 7.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
