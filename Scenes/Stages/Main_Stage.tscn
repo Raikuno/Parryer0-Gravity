@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://dc6bu52vi04kx"]
+[gd_scene load_steps=8 format=3 uid="uid://dc6bu52vi04kx"]
 
+[ext_resource type="Script" path="res://Scenes/Stages/Main_Stage.gd" id="1_5cf8c"]
 [ext_resource type="PackedScene" uid="uid://xgbyun8ral8w" path="res://Scenes/Objects/Ground.tscn" id="1_ekups"]
 [ext_resource type="PackedScene" uid="uid://bwn00rgolturm" path="res://Scenes/Objects/Background.tscn" id="1_fa6pp"]
 [ext_resource type="PackedScene" uid="uid://dbe7cfdjrjnp" path="res://Scenes/Objects/Player.tscn" id="2_jgx66"]
@@ -8,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://caucb4jylbcsh" path="res://Scenes/Components/GameSpeed.tscn" id="5_fam0f"]
 
 [node name="Main_Stage" type="Node2D"]
+script = ExtResource("1_5cf8c")
 
 [node name="Background" parent="." instance=ExtResource("1_fa6pp")]
 

@@ -10,6 +10,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var can_parry = true
 signal hit
 
+
+
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -40,6 +42,8 @@ func invertGravity():
 	gravity *= -1
 	velocity.y += jump_strength
 	jump_strength *= -1
+	
+
 
 func damage_player(dmg_amount:int, enable_hit_stop = false, hit_stop_new_time = 1.0, hit_stop_duration = 0.0):
 	hit_sound.play()
