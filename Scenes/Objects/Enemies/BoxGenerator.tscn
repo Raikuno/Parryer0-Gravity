@@ -3,11 +3,13 @@
 [ext_resource type="Script" path="res://Scripts/Obstacles/Box/BoxGenerator.gd" id="1_80wts"]
 [ext_resource type="PackedScene" uid="uid://wtkgvp1y6rve" path="res://Scenes/Objects/Enemies/BoxEnemy.tscn" id="2_gvsg1"]
 
-[node name="BoxGenerator" type="Node2D"]
+[node name="BoxGenerator" type="Node2D" node_paths=PackedStringArray("timer")]
 script = ExtResource("1_80wts")
 box_enemy = ExtResource("2_gvsg1")
+timer = NodePath("Timer")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 1.25
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

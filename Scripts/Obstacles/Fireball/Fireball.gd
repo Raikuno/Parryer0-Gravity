@@ -1,6 +1,8 @@
 extends EnemyType
 
-@export var base_velocity_min = 100
+const MIN_SCALE = 1.5
+const MAX_SCALE = 3
+@export var base_velocity_min = 300
 @export var base_velocity_max = 500
 @export var animation_node : AnimationPlayer
 @export var sprite : Sprite2D
@@ -9,15 +11,15 @@ extends EnemyType
 var object_speed:float
 var y_speed:float
 func _ready():
-	var randomScale = randf_range(1.5,3)
-	scale = Vector2(randomScale,randomScale)
+	var randomScale = randf_range(MIN_SCALE, MAX_SCALE)
+	scale = Vector2(randomScale, randomScale)
 	
 	#velocity = Vector2(randf_range(base_velocity_min, base_velocity_max), 0.0);
 	object_speed = randf_range(base_velocity_min, base_velocity_max)
 	
 func _physics_process(delta):
-	position.x -= object_speed * delta
-	position.y -= y_speed * delta
+	position.x -= object_speed * delta * Jose_Miguel.get_speed()
+	position.y -= y_speed * delta * Jose_Miguel.get_speed()
 
 
 
@@ -48,3 +50,4 @@ func _on_enemy_parry(player:My_Player):
 	object_speed = 0
 	y_speed = 0
 	#sprite.look_at(opposite_position)
+

@@ -68,7 +68,7 @@ _data = {
 "parry_test": ExtResource("2_l4blo")
 }
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("state_machine", "hit_sound")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("state_machine", "hit_sound") groups=["Player"]]
 collision_mask = 6
 script = ExtResource("1_qty2n")
 state_machine = NodePath("StateMachine")

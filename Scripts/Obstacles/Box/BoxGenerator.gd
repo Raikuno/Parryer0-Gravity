@@ -4,6 +4,7 @@ const MAX_SPAWNS = 1
 @onready var spawn_chance = randi_range(0, MAX_SPAWNS)
 @export var box_enemy:PackedScene
 @export var invert_gravity:bool
+@export var timer:Timer
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -17,11 +18,11 @@ func _process(delta):
 func _on_timer_timeout():
 	match(spawn_chance):
 		0:
-			pass
+			print("Jk")
 		1:
 			generateSingleBox()
 	spawn_chance = randi_range(0, MAX_SPAWNS)
-	print(spawn_chance)
+	timer.wait_time = 1.25 - (Jose_Miguel.get_speed()/4)
 
 func generateSingleBox():
 	var box_instance = box_enemy.instantiate()

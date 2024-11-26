@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dc6bu52vi04kx"]
+[gd_scene load_steps=6 format=3 uid="uid://dc6bu52vi04kx"]
 
 [ext_resource type="PackedScene" uid="uid://xgbyun8ral8w" path="res://Scenes/Objects/Ground.tscn" id="1_ekups"]
 [ext_resource type="PackedScene" uid="uid://dbe7cfdjrjnp" path="res://Scenes/Objects/Player.tscn" id="2_jgx66"]
 [ext_resource type="PackedScene" uid="uid://duquydojdjjt1" path="res://Scenes/Objects/Enemies/FireballGenerator.tscn" id="3_iytkg"]
 [ext_resource type="PackedScene" uid="uid://dfa1w0k7m4liu" path="res://Scenes/Objects/Enemies/BoxGenerator.tscn" id="5_ayp10"]
+[ext_resource type="PackedScene" uid="uid://caucb4jylbcsh" path="res://Scenes/Components/GameSpeed.tscn" id="5_fam0f"]
 
 [node name="Main_Stage" type="Node2D"]
 
@@ -19,10 +20,13 @@ position = Vector2(86, 721)
 [node name="FireballGenerator" parent="." instance=ExtResource("3_iytkg")]
 
 [node name="BoxGenerator" parent="." instance=ExtResource("5_ayp10")]
-position = Vector2(480, 750)
+position = Vector2(480, 837)
 
 [node name="BoxGenerator2" parent="." instance=ExtResource("5_ayp10")]
-position = Vector2(480, 150)
+position = Vector2(480, 69)
 invert_gravity = true
+
+[node name="GameSpeed" parent="." instance=ExtResource("5_fam0f")]
+position = Vector2(246, 416)
 
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
