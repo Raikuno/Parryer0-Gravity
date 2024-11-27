@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://daduy2bk4jkd0"]
 
 [ext_resource type="Script" path="res://Scripts/Obstacles/Fireball/Fireball.gd" id="1_qk88i"]
-[ext_resource type="Texture2D" uid="uid://da14nb3o4ld43" path="res://Resources/Aseprite/FireballV3.png" id="2_iqh1l"]
+[ext_resource type="Texture2D" uid="uid://dqs7y4yfcvq01" path="res://Resources/Aseprite/FireballV4.png" id="2_txqik"]
 
 [sub_resource type="Animation" id="Animation_c75qm"]
 length = 0.8
@@ -69,10 +69,10 @@ bounce = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("2_iqh1l")
+texture = ExtResource("2_txqik")
 hframes = 6
 vframes = 5
-frame = 8
+frame = 7
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -84,14 +84,14 @@ metadata/_aseprite_wizard_config_ = {
 "keep_anim_length": false,
 "layer": "",
 "o_ex_p": "",
-"o_folder": "res://Scenes/Objects",
+"o_folder": "res://Resources/Aseprite",
 "o_name": "",
 "only_visible": false,
 "player": "AnimationPlayer",
 "slice": "",
-"source": "res://Resources/Aseprite/FireballV3.aseprite"
+"source": "res://Resources/Aseprite/FireballV4.aseprite"
 }
-metadata/_aseprite_wizard_source_file_hash_ = "1c2e4b53b02eaf3eb1f3c4b403a3eff5"
+metadata/_aseprite_wizard_source_file_hash_ = "db5a7490abdb47caa88d6393f29bf37f"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

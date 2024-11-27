@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://coougd32q5hkp"
+path="res://.godot/imported/FireballV4.aseprite-4e13c40f2ec0c3bf2a6c52914b31524a.res"
+
+[deps]
+
+source_file="res://Resources/Aseprite/FireballV4.aseprite"
+dest_files=["res://.godot/imported/FireballV4.aseprite-4e13c40f2ec0c3bf2a6c52914b31524a.res"]
+
+[params]
+
