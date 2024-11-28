@@ -48,6 +48,8 @@ func invertGravity():
 func damage_player(dmg_amount:int, enable_hit_stop = false, hit_stop_new_time = 1.0, hit_stop_duration = 0.0):
 	hit_sound.play()
 	life -= dmg_amount
+	if life < 0:
+		get_tree().quit()
 	resetParry()
 	if(enable_hit_stop):
 		hit_stop(hit_stop_new_time, hit_stop_duration)
