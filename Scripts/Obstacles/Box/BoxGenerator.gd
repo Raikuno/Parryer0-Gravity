@@ -18,7 +18,7 @@ func _process(delta):
 func _on_timer_timeout():
 	match(spawn_chance):
 		0:
-			print("Jk")
+			print("Que coño es JK jorge?")
 		1:
 			generateSingleBox()
 	spawn_chance = randi_range(0, MAX_SPAWNS)

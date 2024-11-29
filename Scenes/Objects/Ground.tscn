@@ -1,40 +1,43 @@
-[gd_scene load_steps=8 format=3 uid="uid://xgbyun8ral8w"]
+[gd_scene load_steps=5 format=3 uid="uid://xgbyun8ral8w"]
+
+[ext_resource type="Script" path="res://Scenes/Objects/Ground.gd" id="1_fwmob"]
+[ext_resource type="Texture2D" uid="uid://nra6t2oms8p2" path="res://Resources/Aseprite/ground.png" id="1_vgnsc"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tni6j"]
 absorbent = true
 
-[sub_resource type="QuadMesh" id="QuadMesh_wk4fy"]
-size = Vector2(640, 32)
-
-[sub_resource type="Curve" id="Curve_wobbp"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="Curve" id="Curve_620f6"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.917582, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="Curve" id="Curve_w612i"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.527473, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_k2rjg"]
-curve_x = SubResource("Curve_wobbp")
-curve_y = SubResource("Curve_620f6")
-curve_z = SubResource("Curve_w612i")
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bo4qi"]
-size = Vector2(640, 34)
+size = Vector2(992, 22)
 
-[node name="Ground" type="StaticBody2D"]
+[node name="Ground" type="StaticBody2D" node_paths=PackedStringArray("sprite")]
 collision_layer = 4
 collision_mask = 7
 physics_material_override = SubResource("PhysicsMaterial_tni6j")
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-mesh = SubResource("QuadMesh_wk4fy")
-texture = SubResource("CurveXYZTexture_k2rjg")
+script = ExtResource("1_fwmob")
+sprite = NodePath("Sprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 6)
 shape = SubResource("RectangleShape2D_bo4qi")
 debug_color = Color(0, 0.6, 0.709804, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_vgnsc")
+metadata/_aseprite_wizard_interface_config_ = {
+"output_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://Resources/Aseprite",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://Resources/Aseprite/ground.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "798b74194615f6d955a7f2b83af27254"
