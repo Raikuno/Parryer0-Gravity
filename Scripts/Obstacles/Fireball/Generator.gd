@@ -6,16 +6,19 @@ const NUMBER_OF_POSITIONS = 20.0
 @export var fireball_scene: PackedScene
 @export var fireballLocation: PathFollow2D
 @export var timer:Timer
+var previous_attack:int
 func _on_fireball_timer_timeout():
 	match(spawn_chance):
 		0:
 			pass
 		1:
-			randomMode()
+			randomMode(randi_range(0, 20))
 		2:
 			pattern1()
 			print("pattern 1")
-	spawn_chance = randi_range(0, MAX_SPAWNS)
+	previous_attack = spawn_chance
+	while previous_attack == spawn_chance:
+		spawn_chance = randi_range(0, MAX_SPAWNS)
 
 func generateSingleFireBall(progress:int, speed:String):
 	var fireball = fireball_scene.instantiate()
@@ -30,19 +33,24 @@ func generateHorde(quantity:int, location:Array, time:Array, speed:Array):
 		print("formato incorrecto de posicion/tiempo")
 		return
 	for i in range(0, quantity):
-		await get_tree().create_timer(time[i]).timeout
 		generateSingleFireBall(location[i], speed[i])
+		await get_tree().create_timer(time[i]).timeout
 
 #func _on_player_hit():
 #	print("GOLPIADO PUTO")
 
-func randomMode():
-	timer.wait_time = 1.25 - (Jose_Miguel.get_speed()/4)
-	var fireball = fireball_scene.instantiate()
-	fireballLocation.progress_ratio = float(randi_range(0, NUMBER_OF_POSITIONS)/NUMBER_OF_POSITIONS)
-	fireball.position = fireballLocation.position
-	add_sibling(fireball)
-	timer.wait_time = 0.75 - (Jose_Miguel.get_speed()/4)
+func randomMode(quantity:int):
+	for i in quantity:
+		timer.wait_time = 1.25 - (Jose_Miguel.get_speed()/4)
+		var fireball = fireball_scene.instantiate()
+		var speeds = ["SLOW", "MEDIUM", "FAST"]
+		var random = randi_range(0,2)
+		fireballLocation.progress_ratio = float(randi_range(0, NUMBER_OF_POSITIONS)/NUMBER_OF_POSITIONS)
+		fireball.position = fireballLocation.position
+		fireball.setSpeed(speeds[random])
+		add_sibling(fireball)
+		timer.wait_time = 0.75 - (Jose_Miguel.get_speed()/4)
+		await get_tree().create_timer(randi_range(0, 5)).timeout
 
 func pattern1():
 	var time:Array
@@ -51,7 +59,7 @@ func pattern1():
 	var speed:Array
 	
 	quantity = 5
-	location = [1, 2, 3, 4, 5]
-	time = [0, 0.1, 0.1, 0.1, 0.1]
+	location = [1, 3, 5, 7, 9]
+	time = [0.5, 0.3, 0.1, 0.1, 0.8]
 	speed = ["SLOW", "FAST", "SLOW", "MEDIUM", "SLOW"]
 	generateHorde(quantity, location, time, speed)

@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://duquydojdjjt1"]
+
+[ext_resource type="Script" path="res://Scripts/Obstacles/Fireball/Generator.gd" id="1_rr5jd"]
+[ext_resource type="PackedScene" uid="uid://daduy2bk4jkd0" path="res://Scenes/Objects/Enemies/Fireball.tscn" id="2_vsaq4"]
+
+[sub_resource type="Curve2D" id="Curve2D_t1erg"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 480, 150, 0, 0, 0, 0, 480, 750)
+}
+point_count = 2
+
+[node name="FireballGenerator" type="Path2D" node_paths=PackedStringArray("fireballLocation", "timer")]
+curve = SubResource("Curve2D_t1erg")
+script = ExtResource("1_rr5jd")
+fireball_scene = ExtResource("2_vsaq4")
+fireballLocation = NodePath("FireballSpawner")
+timer = NodePath("Timer")
+
+[node name="FireballSpawner" type="PathFollow2D" parent="."]
+position = Vector2(480, 150)
+rotation = 1.5708
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.75
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_fireball_timer_timeout"]

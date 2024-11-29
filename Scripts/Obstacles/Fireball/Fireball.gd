@@ -25,7 +25,7 @@ func _physics_process(delta):
 
 #Esta funcion se debe llamar desde el objeto que cree a este
 func setSpeed(speed:String):
-	if(speed in SPEEDS.keys()):
+	if!(speed in SPEEDS.keys()):
 		print("Velocidad no aceptada")
 		return
 	object_speed = SPEEDS[speed]
