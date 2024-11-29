@@ -17,6 +17,6 @@ func esSoloUnTestJorgeNoMeOdiesEsMuyTardeYTengoSueño():
 		
 
 
-func _on_timer_timeout():
+func _on_timer_timeout():  
 	tiempo += 1
 	print("TIEMPO: ", tiempo);

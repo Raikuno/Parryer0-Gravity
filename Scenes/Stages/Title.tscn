@@ -24,7 +24,7 @@ font = ExtResource("3_7ixc6")
 position = Vector2(-394, -223)
 
 [node name="Button" parent="." instance=ExtResource("1_cvi5j")]
-position = Vector2(244, 711)
+position = Vector2(244, 452)
 
 [node name="Title" type="Label" parent="."]
 offset_left = 9.0
@@ -45,16 +45,16 @@ label_settings = SubResource("LabelSettings_bd752")
 
 [node name="Label" type="Label" parent="."]
 offset_left = 131.0
-offset_top = 620.0
+offset_top = 361.0
 offset_right = 359.0
-offset_bottom = 643.0
+offset_bottom = 384.0
 text = "Maintain to select"
 label_settings = SubResource("LabelSettings_y73ai")
 
 [node name="Label2" type="Label" parent="."]
 offset_left = 148.0
-offset_top = 775.0
+offset_top = 516.0
 offset_right = 343.0
-offset_bottom = 798.0
+offset_bottom = 539.0
 text = "Press to switch"
 label_settings = SubResource("LabelSettings_g7pco")
