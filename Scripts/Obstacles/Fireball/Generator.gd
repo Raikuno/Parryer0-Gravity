@@ -41,11 +41,15 @@ func generateHorde(quantity:int, location:Array, time:Array, speed:Array):
 
 func randomMode(quantity:int):
 	for i in quantity:
+		var random_ratio = float(randi_range(0, NUMBER_OF_POSITIONS)/NUMBER_OF_POSITIONS) 
 		timer.wait_time = 1.25 - (Jose_Miguel.get_speed()/4)
 		var fireball = fireball_scene.instantiate()
 		var speeds = ["SLOW", "MEDIUM", "FAST"]
 		var random = randi_range(0,2)
-		fireballLocation.progress_ratio = float(randi_range(0, NUMBER_OF_POSITIONS)/NUMBER_OF_POSITIONS)
+		if(fireballLocation.progress_ratio + random_ratio > 9):
+			fireballLocation.progress_ratio = 0
+			random_ratio -=1
+		fireballLocation.progress_ratio += random_ratio
 		fireball.position = fireballLocation.position
 		fireball.setSpeed(speeds[random])
 		add_sibling(fireball)
