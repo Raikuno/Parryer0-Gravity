@@ -42,7 +42,6 @@ position = Vector2(264, 453)
 texture = SubResource("CompressedTexture2D_i27e3")
 hframes = 5
 vframes = 4
-frame = 12
 metadata/_aseprite_wizard_interface_config_ = {
 "output_section": true,
 "pending_changes": {}

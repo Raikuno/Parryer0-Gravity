@@ -1,12 +1,60 @@
-[gd_scene load_steps=3 format=3 uid="uid://bib0mtl1qtcaf"]
+[gd_scene load_steps=8 format=3 uid="uid://bib0mtl1qtcaf"]
 
-[ext_resource type="PackedScene" uid="uid://dporvxpsedrhj" path="res://Scenes/Buttons/Button.tscn" id="1_cvi5j"]
+[ext_resource type="PackedScene" uid="uid://dporvxpsedrhj" path="res://Scenes/Objects/UI/Buttons/Button.tscn" id="1_cvi5j"]
 [ext_resource type="PackedScene" uid="uid://bwn00rgolturm" path="res://Scenes/Objects/Background.tscn" id="2_l4npn"]
+[ext_resource type="FontFile" uid="uid://emxygyo61qsj" path="res://Resources/Fonts/04B_30__.TTF" id="3_7ixc6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_me5nc"]
+font = ExtResource("3_7ixc6")
+font_size = 34
+
+[sub_resource type="LabelSettings" id="LabelSettings_bd752"]
+font = ExtResource("3_7ixc6")
+font_color = Color(0.337255, 0.568627, 0.905882, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_y73ai"]
+font = ExtResource("3_7ixc6")
+
+[sub_resource type="LabelSettings" id="LabelSettings_g7pco"]
+font = ExtResource("3_7ixc6")
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Background" parent="." instance=ExtResource("2_l4npn")]
-position = Vector2(15, 19)
+position = Vector2(-394, -223)
 
 [node name="Button" parent="." instance=ExtResource("1_cvi5j")]
-position = Vector2(232, 383)
+position = Vector2(244, 711)
+
+[node name="Title" type="Label" parent="."]
+offset_left = 9.0
+offset_top = 65.0
+offset_right = 559.0
+offset_bottom = 178.0
+text = "PARRIERO NOMBRE 
+PROVISIONAL"
+label_settings = SubResource("LabelSettings_me5nc")
+
+[node name="Credits" type="Label" parent="."]
+offset_left = 22.0
+offset_top = 853.0
+offset_right = 354.0
+offset_bottom = 880.0
+text = "Made By: Raikuno  PPKRex"
+label_settings = SubResource("LabelSettings_bd752")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 131.0
+offset_top = 620.0
+offset_right = 359.0
+offset_bottom = 643.0
+text = "Maintain to select"
+label_settings = SubResource("LabelSettings_y73ai")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 148.0
+offset_top = 775.0
+offset_right = 343.0
+offset_bottom = 798.0
+text = "Press to switch"
+label_settings = SubResource("LabelSettings_g7pco")
