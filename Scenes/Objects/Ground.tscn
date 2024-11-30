@@ -1,29 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://xgbyun8ral8w"]
+[gd_scene load_steps=4 format=3 uid="uid://xgbyun8ral8w"]
 
-[ext_resource type="Script" path="res://Scenes/Objects/Ground.gd" id="1_fwmob"]
-[ext_resource type="Texture2D" uid="uid://nra6t2oms8p2" path="res://Resources/Aseprite/ground.png" id="1_vgnsc"]
+[ext_resource type="Texture2D" uid="uid://c7ntc1xsvd3yf" path="res://Resources/Aseprite/FloorA.png" id="2_h2oef"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tni6j"]
 absorbent = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bo4qi"]
-size = Vector2(992, 22)
+size = Vector2(499, 49)
 
-[node name="Ground" type="StaticBody2D" node_paths=PackedStringArray("sprite")]
+[node name="Ground" type="StaticBody2D"]
 collision_layer = 4
 collision_mask = 7
 physics_material_override = SubResource("PhysicsMaterial_tni6j")
-script = ExtResource("1_fwmob")
-sprite = NodePath("Sprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 6)
+position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_bo4qi")
 debug_color = Color(0, 0.6, 0.709804, 0.419608)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("1_vgnsc")
+texture = ExtResource("2_h2oef")
 metadata/_aseprite_wizard_interface_config_ = {
 "output_section": true,
 "pending_changes": {}

@@ -16,4 +16,3 @@ func _on_enemy_parry(player:My_Player):
 
 func _on_hit_player(body):
 	assigned_enemy.queue_free()
-	pass # Replace with function body.

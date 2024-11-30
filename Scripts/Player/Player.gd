@@ -49,7 +49,8 @@ func damage_player(dmg_amount:int, enable_hit_stop = false, hit_stop_new_time = 
 	hit_sound.play()
 	life -= dmg_amount
 	if life < 0:
-		get_tree().quit()
+	#	get_tree().quit()
+		pass
 	resetParry()
 	if(enable_hit_stop):
 		hit_stop(hit_stop_new_time, hit_stop_duration)
