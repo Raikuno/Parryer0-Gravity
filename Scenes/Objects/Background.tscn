@@ -32,17 +32,18 @@ sprite = NodePath("ParallaxBackground/ParallaxLayer/Sprite2D")
 timer = NodePath("Timer")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_limit_begin = Vector2(0, 500)
+scroll_ignore_camera_zoom = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2(1000, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 texture_filter = 1
-position = Vector2(264, 453)
+position = Vector2(500, 450)
 texture = SubResource("CompressedTexture2D_i27e3")
 hframes = 5
 vframes = 4
-frame = 15
 metadata/_aseprite_wizard_interface_config_ = {
 "output_section": true,
 "pending_changes": {}

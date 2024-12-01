@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://b665lm34dcy52"
+path="res://.godot/imported/Robotin.aseprite-ae7bb5e99b8192876f3113492326dbec.res"
+
+[deps]
+
+source_file="res://Resources/Aseprite/Robotin.aseprite"
+dest_files=["res://.godot/imported/Robotin.aseprite-ae7bb5e99b8192876f3113492326dbec.res"]
+
+[params]
+

@@ -8,13 +8,12 @@ func onEnter():
 	if(not animation_player.animation_finished.is_connected(parry_ended)):
 		animation_player.animation_finished.connect(parry_ended)
 	assigned_character.disableParry()
-	animation_player.play("parry_test")
+	assigned_character.changeParryAnimation()
 	assigned_character.set_collision_layer_value(1, false)
 	parry_hitbox.set_deferred("disabled", false)
 
 #(Override) Anula la funcion de State
 func onExited():
-	animation_player.play("RESET")
 	assigned_character.set_collision_layer_value(1, true)
 	parry_hitbox.set_deferred("disabled", true)
 
@@ -23,7 +22,7 @@ func process(delta):
 	pass
 
 func parry_ended(anim_name:String):
-	if(anim_name == "parry_test"):
+	if(anim_name == "Parry" || 'Parry_Red'):
 		state_swap.emit(name, "air")
 
 func parry_collision(area:Area2D):

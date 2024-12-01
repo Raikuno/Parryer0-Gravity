@@ -4,13 +4,36 @@ class_name My_Player
 @export var state_machine:State_Machine
 @export var life = 5
 @export var hit_sound:AudioStreamPlayer
+@export var animation_player:AnimationPlayer
+
 var jump_strength = -500.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var can_parry = true
 signal hit
+var BLUE = 'BLUE'
+var RED = 'RED'
+var playerColor = BLUE
 
 
+
+func changeGroundAnimation():
+	if playerColor == BLUE:
+		animation_player.play('Ground')
+	else:
+		animation_player.play('Ground_Red')
+		
+func changeAirAnimation():
+	if playerColor == BLUE:
+		animation_player.play('Air')
+	else:
+		animation_player.play('Air_Red')
+		
+func changeParryAnimation():
+	if playerColor == BLUE:
+		animation_player.play('Parry')
+	else:
+		animation_player.play('Parry_Red')			
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -42,6 +65,12 @@ func invertGravity():
 	gravity *= -1
 	velocity.y += jump_strength
 	jump_strength *= -1
+	if playerColor == BLUE:
+		$".".rotation = 180 * 2 * PI / 360
+		playerColor = RED
+	else:
+		$".".rotation = 0 * 2 * PI / 360  #Esta linea está solo para enfadar a jorge
+		playerColor = BLUE		
 	
 
 

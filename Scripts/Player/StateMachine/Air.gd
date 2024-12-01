@@ -1,7 +1,10 @@
 extends State
 
-
 #(Override) Anula la funcion de State
+func onEnter():
+	assigned_character.changeAirAnimation()
+	assigned_character.resetParry()
+	
 func process(delta):
 	if (assigned_character.can_parry&&Input.is_action_just_pressed("button")):
 		state_swap.emit(name, "parry")

@@ -23,10 +23,10 @@ position = Vector2(251, 875)
 [node name="Player" parent="." instance=ExtResource("2_jgx66")]
 position = Vector2(86, 721)
 
-[node name="FireballGenerator" parent="." instance=ExtResource("3_iytkg")]
-
 [node name="BoxGenerator" parent="." instance=ExtResource("5_ayp10")]
 position = Vector2(480, 837)
+
+[node name="FireballGenerator" parent="." instance=ExtResource("3_iytkg")]
 
 [node name="BoxGenerator2" parent="." instance=ExtResource("5_ayp10")]
 position = Vector2(480, 69)
