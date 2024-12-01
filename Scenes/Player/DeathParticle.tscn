@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://2cgwkme3ylej"]
+
+[ext_resource type="Texture2D" uid="uid://7plp1at062xk" path="res://Resources/Particles/ParticleB.png" id="1_0qufm"]
+[ext_resource type="Script" path="res://Scripts/Player/Particle/ParticlePhysics.gd" id="1_4mm8k"]
+
+[node name="DeathParticle" type="CPUParticles2D"]
+emitting = false
+amount = 1
+lifetime = 4.0
+one_shot = true
+texture = ExtResource("1_0qufm")
+direction = Vector2(0, -1)
+spread = 0.0
+angle_min = -170.0
+angle_max = 174.5
+scale_amount_min = 1.5
+scale_amount_max = 1.5
+script = ExtResource("1_4mm8k")

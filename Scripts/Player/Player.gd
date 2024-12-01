@@ -2,10 +2,10 @@ extends CharacterBody2D
 class_name My_Player
 
 @export var state_machine:State_Machine
-@export var life = 5
+@export var life = 4
 @export var hit_sound:AudioStreamPlayer
 @export var animation_player:AnimationPlayer
-
+@export var death_particle:PackedScene
 var jump_strength = -500.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -66,10 +66,10 @@ func invertGravity():
 	velocity.y += jump_strength
 	jump_strength *= -1
 	if playerColor == BLUE:
-		$".".rotation = 180 * 2 * PI / 360
+		rotation = PI
 		playerColor = RED
 	else:
-		$".".rotation = 0 * 2 * PI / 360  #Esta linea está solo para enfadar a jorge
+		rotation = 0  
 		playerColor = BLUE		
 	
 
@@ -78,8 +78,7 @@ func damage_player(dmg_amount:int, enable_hit_stop = false, hit_stop_new_time = 
 	hit_sound.play()
 	life -= dmg_amount
 	if life < 0:
-	#	get_tree().quit()
-		pass
+		kill_player()
 	resetParry()
 	if(enable_hit_stop):
 		hit_stop(hit_stop_new_time, hit_stop_duration)
@@ -88,3 +87,14 @@ func hit_stop(newTime:float, duration:float):
 	Engine.time_scale = newTime
 	await get_tree().create_timer(duration, true, false, true).timeout
 	Engine.time_scale = 1
+
+func kill_player():
+	var particle = death_particle.instantiate()
+	if particle.has_method("show_death"):
+		particle.show_death(playerColor, velocity.y)
+		particle.set_deferred("position",position)
+		add_sibling(particle)
+	set_deferred("visible", false)
+	set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)
+	
+
