@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bib0mtl1qtcaf"]
+[gd_scene load_steps=7 format=3 uid="uid://bib0mtl1qtcaf"]
 
 [ext_resource type="PackedScene" uid="uid://dporvxpsedrhj" path="res://Scenes/Objects/UI/Buttons/Button.tscn" id="1_cvi5j"]
 [ext_resource type="PackedScene" uid="uid://bwn00rgolturm" path="res://Scenes/Objects/Background.tscn" id="2_l4npn"]
@@ -13,9 +13,6 @@ font = ExtResource("3_7ixc6")
 font_color = Color(0.337255, 0.568627, 0.905882, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_y73ai"]
-font = ExtResource("3_7ixc6")
-
-[sub_resource type="LabelSettings" id="LabelSettings_g7pco"]
 font = ExtResource("3_7ixc6")
 
 [node name="Node2D" type="Node2D"]
@@ -44,17 +41,9 @@ text = "Made By: Raikuno  PPKRex"
 label_settings = SubResource("LabelSettings_bd752")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 131.0
-offset_top = 361.0
-offset_right = 359.0
-offset_bottom = 384.0
+offset_left = 133.0
+offset_top = 509.0
+offset_right = 361.0
+offset_bottom = 532.0
 text = "Maintain to select"
 label_settings = SubResource("LabelSettings_y73ai")
-
-[node name="Label2" type="Label" parent="."]
-offset_left = 148.0
-offset_top = 516.0
-offset_right = 343.0
-offset_bottom = 539.0
-text = "Press to switch"
-label_settings = SubResource("LabelSettings_g7pco")
