@@ -10,11 +10,10 @@ var jump_strength = -500.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var can_parry = true
-signal hit
 var BLUE = 'BLUE'
 var RED = 'RED'
 var playerColor = BLUE
-
+signal hit
 
 
 func changeGroundAnimation():
@@ -77,8 +76,10 @@ func invertGravity():
 func damage_player(dmg_amount:int, enable_hit_stop = false, hit_stop_new_time = 1.0, hit_stop_duration = 0.0):
 	hit_sound.play()
 	life -= dmg_amount
-	if life < 0:
+	if life <= 0:
 		kill_player()
+	else:
+		hit.emit()
 	resetParry()
 	if(enable_hit_stop):
 		hit_stop(hit_stop_new_time, hit_stop_duration)
@@ -97,4 +98,5 @@ func kill_player():
 	set_deferred("visible", false)
 	set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)
 	
-
+func get_lives() -> int:
+	return life

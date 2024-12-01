@@ -1,0 +1,123 @@
+[gd_scene load_steps=10 format=3 uid="uid://bqj3d81oyallf"]
+
+[ext_resource type="Script" path="res://Scripts/Floor&Stage/Floor.gd" id="1_6glbi"]
+[ext_resource type="Texture2D" uid="uid://c7ntc1xsvd3yf" path="res://Resources/Aseprite/FloorA.png" id="1_10w81"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tni6j"]
+absorbent = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bo4qi"]
+size = Vector2(499, 49)
+
+[sub_resource type="Animation" id="Animation_ep8c2"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_wgw3w"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_0rmmq"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_pydyu"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mq4y7"]
+_data = {
+"0_out": SubResource("Animation_ep8c2"),
+"1_out": SubResource("Animation_wgw3w"),
+"2_out": SubResource("Animation_0rmmq"),
+"3_out": SubResource("Animation_pydyu")
+}
+
+[node name="Ground" type="StaticBody2D" node_paths=PackedStringArray("animation_player")]
+collision_layer = 4
+collision_mask = 7
+physics_material_override = SubResource("PhysicsMaterial_tni6j")
+script = ExtResource("1_6glbi")
+animation_player = NodePath("AnimationPlayer")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_bo4qi")
+debug_color = Color(0, 0.6, 0.709804, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_10w81")
+hframes = 2
+vframes = 2
+metadata/_aseprite_wizard_interface_config_ = {
+"output_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 0,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://Resources/Aseprite",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer",
+"slice": "",
+"source": "res://Resources/Aseprite/FloorA.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "81e310d4780f4ea5c973a0ee1f75188d"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mq4y7")
+}
+autoplay = "0_out"
