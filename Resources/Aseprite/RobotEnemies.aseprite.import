@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://ceel8o63u6l42"
+path="res://.godot/imported/RobotEnemies.aseprite-291eb7483c4c4d3a8a0e2a7d002b5440.res"
+
+[deps]
+
+source_file="res://Resources/Aseprite/RobotEnemies.aseprite"
+dest_files=["res://.godot/imported/RobotEnemies.aseprite-291eb7483c4c4d3a8a0e2a7d002b5440.res"]
+
+[params]
+

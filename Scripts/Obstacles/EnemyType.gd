@@ -4,6 +4,8 @@ class_name EnemyType
 @onready var being_parried = false
 @export var atq_strength = 1
 @export var bounce = false
+
+
 signal hitPlayer(body:Node2D)
 signal enemyParry(player:My_Player)
 

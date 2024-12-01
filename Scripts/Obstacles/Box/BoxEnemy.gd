@@ -1,7 +1,7 @@
 extends EnemyType
-# Called when the node enters the scene tree for the first time.
-@export var assigned_enemy:CharacterBody2D
 
+@export var enemy:CharacterBody2D
+# Called when the node enters the scene tree for the first time. 
 func _ready():
 	pass # Replace with function body.
 
@@ -9,10 +9,10 @@ func _ready():
 func _process(delta):
 	pass
 
-func _on_enemy_parry(player:My_Player):
-	assigned_enemy.queue_free()
-	pass # Replace with function body.
-
 
 func _on_hit_player(body):
-	assigned_enemy.queue_free()
+	enemy.startHitAnimation()
+
+func _on_enemy_parry(player:My_Player):
+	enemy.startParryAnimation()
+

@@ -72,6 +72,7 @@ texture_filter = 1
 texture = ExtResource("2_3vwy5")
 hframes = 6
 vframes = 5
+frame = 7
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,

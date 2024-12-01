@@ -1,55 +1,174 @@
-[gd_scene load_steps=9 format=3 uid="uid://wtkgvp1y6rve"]
+[gd_scene load_steps=12 format=3 uid="uid://wtkgvp1y6rve"]
 
 [ext_resource type="Script" path="res://Scripts/Obstacles/Box/BoxEnemy.gd" id="1_7crk8"]
 [ext_resource type="Script" path="res://Scripts/Obstacles/Box/BoxPhysics.gd" id="1_ottun"]
+[ext_resource type="Texture2D" uid="uid://cqohti0d5vthb" path="res://Resources/Aseprite/RobotEnemies.png" id="3_gxyo2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n5thk"]
 size = Vector2(28, 28)
 
-[sub_resource type="QuadMesh" id="QuadMesh_j2xa3"]
-size = Vector2(32, 32)
+[sub_resource type="Animation" id="Animation_gqyks"]
+length = 1.44
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.12, 0.24, 0.36, 0.48, 0.6, 0.72, 0.84, 0.96, 1.08, 1.2, 1.32),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0]
+}
 
-[sub_resource type="Curve" id="Curve_ud31l"]
-_data = [Vector2(0.994506, 1), 0.0, 0.0, 0, 0]
-point_count = 1
+[sub_resource type="Animation" id="Animation_cj6x0"]
+length = 1.44
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.12, 0.24, 0.36, 0.48, 0.6, 0.72, 0.84, 0.96, 1.08, 1.2, 1.32),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]
+}
 
-[sub_resource type="Curve" id="Curve_qcas4"]
+[sub_resource type="Animation" id="Animation_krcj4"]
+length = 0.72
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.12, 0.24, 0.36, 0.48, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [23, 24, 25, 26, 27, 28]
+}
 
-[sub_resource type="Curve" id="Curve_ey0ae"]
+[sub_resource type="Animation" id="Animation_1p6xd"]
+length = 0.72
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.12, 0.24, 0.36, 0.48, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [29, 30, 31, 32, 33, 34]
+}
 
-[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_iiwyj"]
-curve_x = SubResource("Curve_ud31l")
-curve_y = SubResource("Curve_qcas4")
-curve_z = SubResource("Curve_ey0ae")
+[sub_resource type="Animation" id="Animation_778gy"]
+length = 0.48
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [35, 36, 37, 38, 39, 40, 41, 42]
+}
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[sub_resource type="Animation" id="Animation_k6b13"]
+length = 0.48
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [43, 44, 45, 46, 47, 48, 49, 50]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bpakb"]
+_data = {
+"Death": SubResource("Animation_krcj4"),
+"Death_Red": SubResource("Animation_1p6xd"),
+"Hit": SubResource("Animation_778gy"),
+"Hit_Red": SubResource("Animation_k6b13"),
+"Idle": SubResource("Animation_gqyks"),
+"Idle_Red": SubResource("Animation_cj6x0")
+}
+
+[node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("animation", "sprite")]
 collision_layer = 0
 collision_mask = 4
 collision_priority = 2.0
 platform_floor_layers = 4294967292
 script = ExtResource("1_ottun")
+animation = NodePath("PhysicsCollision/AnimationPlayer")
+sprite = NodePath("Sprite2D")
 
-[node name="EnemyComponent" type="Area2D" parent="." node_paths=PackedStringArray("assigned_enemy")]
+[node name="EnemyComponent" type="Area2D" parent="." node_paths=PackedStringArray("enemy")]
 collision_layer = 2
 script = ExtResource("1_7crk8")
-assigned_enemy = NodePath("..")
+enemy = NodePath("..")
 bounce = true
 
 [node name="EnemyCollision" type="CollisionShape2D" parent="EnemyComponent"]
 shape = SubResource("RectangleShape2D_n5thk")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-mesh = SubResource("QuadMesh_j2xa3")
-texture = SubResource("CurveXYZTexture_iiwyj")
-
 [node name="PhysicsCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_n5thk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PhysicsCollision"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_bpakb")
+}
+autoplay = "Idle"
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(-2.38419e-07, 2.08616e-07)
 scale = Vector2(1.6, 1.6)
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -1)
+texture = ExtResource("3_gxyo2")
+hframes = 8
+vframes = 7
+frame = 23
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"output_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 0,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://Resources/Aseprite",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer",
+"slice": "",
+"source": "res://Resources/Aseprite/RobotEnemies.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "24863a6f2910e49fcfdf5022807ff0cd"
+
 [connection signal="body_entered" from="EnemyComponent" to="EnemyComponent" method="player_hitted"]
 [connection signal="enemyParry" from="EnemyComponent" to="EnemyComponent" method="_on_enemy_parry"]
 [connection signal="hitPlayer" from="EnemyComponent" to="EnemyComponent" method="_on_hit_player"]
+[connection signal="animation_finished" from="PhysicsCollision/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="destroy"]

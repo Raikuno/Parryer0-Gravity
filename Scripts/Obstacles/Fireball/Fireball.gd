@@ -14,8 +14,11 @@ const SPEEDS = {"SLOW":SLOW,
 var object_speed:float
 var y_speed:float
 func _ready():
-	var randomScale = randf_range(MIN_SCALE, MAX_SCALE)
+	pass
+	#var randomScale = randf_range(MIN_SCALE, MAX_SCALE)
+	var randomScale = 2.25		# QUITÉ EL RANDOM DE LA ESCALA PORQUE QUEDAN MEJOR LOS PATRONES, HAY QUE HABLARLO
 	scale = Vector2(randomScale, randomScale)
+	
 	#velocity = Vector2(randf_range(base_velocity_min, base_velocity_max), 0.0);
 	#object_speed = randf_range(base_velocity_min, base_velocity_max)
 	
