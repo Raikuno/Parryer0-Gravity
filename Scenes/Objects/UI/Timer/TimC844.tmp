@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dx1xowap5t2gc"]
+
+[ext_resource type="Script" path="res://Scripts/Global&Others/GameTimer.gd" id="1_qeenv"]
+[ext_resource type="FontFile" uid="uid://emxygyo61qsj" path="res://Resources/Fonts/04B_30__.TTF" id="2_ig1k3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hyjc1"]
+font = ExtResource("2_ig1k3")
+
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("label")]
+script = ExtResource("1_qeenv")
+label = NodePath("Label")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "00:00"
+label_settings = SubResource("LabelSettings_hyjc1")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

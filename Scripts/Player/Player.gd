@@ -14,6 +14,7 @@ var BLUE = 'BLUE'
 var RED = 'RED'
 var playerColor = BLUE
 signal hit
+signal death
 
 
 func changeGroundAnimation():
@@ -77,6 +78,7 @@ func damage_player(dmg_amount:int, enable_hit_stop = false, hit_stop_new_time = 
 	hit_sound.play()
 	life -= dmg_amount
 	if life <= 0:
+		death.emit()
 		kill_player()
 	else:
 		hit.emit()

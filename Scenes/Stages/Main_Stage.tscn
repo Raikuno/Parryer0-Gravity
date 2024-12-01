@@ -1,6 +1,5 @@
 [gd_scene load_steps=9 format=3 uid="uid://dc6bu52vi04kx"]
 
-[ext_resource type="Script" path="res://Scenes/Stages/Main_Stage.gd" id="1_5cf8c"]
 [ext_resource type="PackedScene" uid="uid://xgbyun8ral8w" path="res://Scenes/Objects/GroundB.tscn" id="1_ekups"]
 [ext_resource type="PackedScene" uid="uid://bwn00rgolturm" path="res://Scenes/Objects/Background.tscn" id="1_fa6pp"]
 [ext_resource type="PackedScene" uid="uid://dbe7cfdjrjnp" path="res://Scenes/Player/Player.tscn" id="2_jgx66"]
@@ -8,9 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://dfa1w0k7m4liu" path="res://Scenes/Objects/Enemies/BoxGenerator.tscn" id="5_ayp10"]
 [ext_resource type="PackedScene" uid="uid://caucb4jylbcsh" path="res://Scenes/Components/GameSpeed.tscn" id="5_fam0f"]
 [ext_resource type="PackedScene" uid="uid://bqj3d81oyallf" path="res://Scenes/Objects/GroundA.tscn" id="8_4wge6"]
+[ext_resource type="PackedScene" uid="uid://dx1xowap5t2gc" path="res://Scenes/Objects/UI/Timer/Timer.tscn" id="8_ye424"]
 
 [node name="Main_Stage" type="Node2D"]
-script = ExtResource("1_5cf8c")
 
 [node name="Background" parent="." instance=ExtResource("1_fa6pp")]
 
@@ -26,9 +25,6 @@ invert_gravity = true
 [node name="GameSpeed" parent="." instance=ExtResource("5_fam0f")]
 position = Vector2(246, 416)
 
-[node name="Timer" type="Timer" parent="."]
-autostart = true
-
 [node name="Player" parent="." instance=ExtResource("2_jgx66")]
 position = Vector2(82, 795)
 
@@ -41,4 +37,6 @@ assigned_player = NodePath("../Player")
 position = Vector2(250, 875)
 assigned_player = NodePath("../Player")
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="Timer" parent="." node_paths=PackedStringArray("assigned_player") instance=ExtResource("8_ye424")]
+position = Vector2(389, 70)
+assigned_player = NodePath("../Player")
