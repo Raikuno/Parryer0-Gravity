@@ -14,7 +14,7 @@ var BLUE = 'BLUE'
 var RED = 'RED'
 var playerColor = BLUE
 signal hit
-signal parry
+signal parry(combo : int)
 signal death
 
 
@@ -74,8 +74,8 @@ func invertGravity():
 		playerColor = BLUE		
 	
 
-func parry_succeded():
-	parry.emit()
+func parry_succeded(combo : int):
+	parry.emit(combo)
 
 func damage_player(dmg_amount:int, enable_hit_stop = false, hit_stop_new_time = 1.0, hit_stop_duration = 0.0):
 	hit_sound.play()

@@ -12,9 +12,23 @@ func showHit():
 	sprite.visible = true
 	animation_player.play('Hit')
 
-func showParry():
+func showParry(combo : int):
+	print(combo)
 	sprite.visible = true
-	animation_player.play('Parry')
+	match combo:
+		1:
+			animation_player.play("Parry") 
+		2:
+			animation_player.play("Parry2") 
+		3:
+			animation_player.play("Parry3") 
+		4:
+			animation_player.play("Parry4") 
+		5:
+			animation_player.play("Parry5") 
+		_:
+			animation_player.play("Parry6") 
+			
 
 func _on_animation_player_animation_finished(anim_name):
 	sprite.visible = false

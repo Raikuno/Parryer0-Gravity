@@ -3,6 +3,8 @@ extends State
 @export var animation_player:AnimationPlayer
 @export var parry_hitbox:CollisionShape2D
 @export var parry_sound:AudioStreamPlayer
+var combo = 0
+
 #(Override) Anula la funcion de State
 func onEnter():
 	if(not animation_player.animation_finished.is_connected(parry_ended)):
@@ -28,7 +30,8 @@ func parry_ended(anim_name:String):
 func parry_collision(area:Area2D):
 	if(area is EnemyType && !area.being_parried):
 		parry_sound.play()
-		assigned_character.parry_succeded()
+		combo += 1
+		assigned_character.parry_succeded(combo)
 		area.parried(assigned_character)
 		if(area.can_bounce()):
 			assigned_character.invertGravity()
