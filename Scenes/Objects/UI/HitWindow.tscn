@@ -1,7 +1,22 @@
-[gd_scene load_steps=11 format=3 uid="uid://bp40hqxqhr1hg"]
+[gd_scene load_steps=12 format=3 uid="uid://bp40hqxqhr1hg"]
 
 [ext_resource type="Texture2D" uid="uid://cl4j4jdf2t14r" path="res://Resources/Aseprite/HitWindowV1.png" id="1_hrd5p"]
 [ext_resource type="Script" path="res://Scripts/Floor&Stage/HitWindow.gd" id="1_twksp"]
+
+[sub_resource type="Animation" id="Animation_ayu3w"]
+length = 0.64
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.16, 0.24, 0.32, 0.4, 0.48, 0.56),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
 
 [sub_resource type="Animation" id="Animation_fqj2k"]
 length = 0.2
@@ -15,7 +30,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [20, 21, 22, 23]
+"values": [28, 29, 30, 31]
 }
 
 [sub_resource type="Animation" id="Animation_4kybn"]
@@ -30,7 +45,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3]
+"values": [8, 9, 10, 11]
 }
 
 [sub_resource type="Animation" id="Animation_vjvdp"]
@@ -45,7 +60,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [4, 5, 6, 7]
+"values": [12, 13, 14, 15]
 }
 
 [sub_resource type="Animation" id="Animation_a8882"]
@@ -60,7 +75,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [8, 9, 10, 11]
+"values": [16, 17, 18, 19]
 }
 
 [sub_resource type="Animation" id="Animation_w7na2"]
@@ -75,7 +90,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [12, 13, 14, 15]
+"values": [20, 21, 22, 23]
 }
 
 [sub_resource type="Animation" id="Animation_sjqng"]
@@ -90,7 +105,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [16, 17, 18, 19]
+"values": [24, 25, 26, 27]
 }
 
 [sub_resource type="Animation" id="Animation_mssq6"]
@@ -105,11 +120,12 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [24, 25, 26, 27]
+"values": [32, 33, 34, 35]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wvjya"]
 _data = {
+"Game Over": SubResource("Animation_ayu3w"),
 "Hit": SubResource("Animation_fqj2k"),
 "Parry": SubResource("Animation_4kybn"),
 "Parry2": SubResource("Animation_vjvdp"),
@@ -129,8 +145,7 @@ visible = false
 texture_filter = 1
 texture = ExtResource("1_hrd5p")
 hframes = 6
-vframes = 5
-frame = 20
+vframes = 6
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": true,
 "output_section": true,
@@ -148,7 +163,7 @@ metadata/_aseprite_wizard_config_ = {
 "slice": "",
 "source": "res://Resources/Aseprite/HitWindowV1.aseprite"
 }
-metadata/_aseprite_wizard_source_file_hash_ = "319fa926ed7f62b466dac495cedbf8bf"
+metadata/_aseprite_wizard_source_file_hash_ = "ed5f3de66e9e23edd612ccc3408d4576"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

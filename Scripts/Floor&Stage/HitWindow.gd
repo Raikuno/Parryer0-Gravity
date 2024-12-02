@@ -7,6 +7,12 @@ extends Node2D
 func _ready():
 	assigned_player.hit.connect(showHit)
 	assigned_player.parry.connect(showParry)
+	assigned_player.death.connect(showDeath)
+
+func showDeath():
+	print("semen")
+	sprite.set_deferred("visible", true)
+	animation_player.play('Game Over')
 
 func showHit():
 	sprite.set_deferred("visible", true)
@@ -31,4 +37,5 @@ func showParry(combo : int):
 			
 
 func _on_animation_player_animation_finished(anim_name):
-	sprite.set_deferred("visible", false)
+	if !anim_name == "Game Over":
+		sprite.set_deferred("visible", false)
