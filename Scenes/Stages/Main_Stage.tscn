@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dc6bu52vi04kx"]
+[gd_scene load_steps=10 format=3 uid="uid://dc6bu52vi04kx"]
 
 [ext_resource type="PackedScene" uid="uid://xgbyun8ral8w" path="res://Scenes/Objects/GroundB.tscn" id="1_ekups"]
 [ext_resource type="PackedScene" uid="uid://bwn00rgolturm" path="res://Scenes/Objects/Background.tscn" id="1_fa6pp"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://caucb4jylbcsh" path="res://Scenes/Components/GameSpeed.tscn" id="5_fam0f"]
 [ext_resource type="PackedScene" uid="uid://bqj3d81oyallf" path="res://Scenes/Objects/GroundA.tscn" id="8_4wge6"]
 [ext_resource type="PackedScene" uid="uid://dx1xowap5t2gc" path="res://Scenes/Objects/UI/Timer/Timer.tscn" id="8_ye424"]
+[ext_resource type="PackedScene" uid="uid://bp40hqxqhr1hg" path="res://Scenes/Objects/UI/HitWindow.tscn" id="9_jbw12"]
 
 [node name="Main_Stage" type="Node2D"]
 
@@ -39,4 +40,8 @@ assigned_player = NodePath("../Player")
 
 [node name="Timer" parent="." node_paths=PackedStringArray("assigned_player") instance=ExtResource("8_ye424")]
 position = Vector2(389, 70)
+assigned_player = NodePath("../Player")
+
+[node name="HitWindow" parent="." node_paths=PackedStringArray("assigned_player") instance=ExtResource("9_jbw12")]
+position = Vector2(240, 450)
 assigned_player = NodePath("../Player")

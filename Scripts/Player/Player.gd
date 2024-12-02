@@ -14,6 +14,7 @@ var BLUE = 'BLUE'
 var RED = 'RED'
 var playerColor = BLUE
 signal hit
+signal parry
 signal death
 
 
@@ -33,7 +34,7 @@ func changeParryAnimation():
 	if playerColor == BLUE:
 		animation_player.play('Parry')
 	else:
-		animation_player.play('Parry_Red')			
+		animation_player.play('Parry_Red')
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -73,6 +74,8 @@ func invertGravity():
 		playerColor = BLUE		
 	
 
+func parry_succeded():
+	parry.emit()
 
 func damage_player(dmg_amount:int, enable_hit_stop = false, hit_stop_new_time = 1.0, hit_stop_duration = 0.0):
 	hit_sound.play()

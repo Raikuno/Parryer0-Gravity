@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://vng3nt7ec5jn"
+path="res://.godot/imported/HitWindowV1.aseprite-65a721229e9825ca0f060b820266fd0a.res"
+
+[deps]
+
+source_file="res://Resources/Aseprite/HitWindowV1.aseprite"
+dest_files=["res://.godot/imported/HitWindowV1.aseprite-65a721229e9825ca0f060b820266fd0a.res"]
+
+[params]
+
