@@ -2,6 +2,7 @@ extends State
 
 #(Override) Anula la funcion de State
 func onEnter():
+	assigned_character.resetCombo()
 	assigned_character.changeGroundAnimation()
 	assigned_character.resetParry()
 

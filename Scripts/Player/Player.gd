@@ -6,13 +6,15 @@ class_name My_Player
 @export var hit_sound:AudioStreamPlayer
 @export var animation_player:AnimationPlayer
 @export var death_particle:PackedScene
+@onready var can_parry = true
+@onready var combo = 0
 var jump_strength = -500.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-@onready var can_parry = true
 var BLUE = 'BLUE'
 var RED = 'RED'
 var playerColor = BLUE
+
 signal hit
 signal parry(combo : int)
 signal death
@@ -74,10 +76,15 @@ func invertGravity():
 		playerColor = BLUE		
 	
 
-func parry_succeded(combo : int):
+func resetCombo():
+	combo = 0
+
+func parry_succeded():
+	combo += 1
 	parry.emit(combo)
 
 func damage_player(dmg_amount:int, enable_hit_stop = false, hit_stop_new_time = 1.0, hit_stop_duration = 0.0):
+	resetCombo()
 	hit_sound.play()
 	life -= dmg_amount
 	if life <= 0:

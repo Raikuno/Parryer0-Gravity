@@ -9,12 +9,12 @@ func _ready():
 	assigned_player.parry.connect(showParry)
 
 func showHit():
-	sprite.visible = true
+	sprite.set_deferred("visible", true)
 	animation_player.play('Hit')
 
 func showParry(combo : int):
 	print(combo)
-	sprite.visible = true
+	sprite.set_deferred("visible", true)
 	match combo:
 		1:
 			animation_player.play("Parry") 
@@ -31,4 +31,4 @@ func showParry(combo : int):
 			
 
 func _on_animation_player_animation_finished(anim_name):
-	sprite.visible = false
+	sprite.set_deferred("visible", false)
