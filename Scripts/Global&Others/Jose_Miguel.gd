@@ -3,6 +3,7 @@ class_name Jose_Miguel
 
 static var global_speed = 1
 
+
 static func get_speed():
 	return global_speed
 
