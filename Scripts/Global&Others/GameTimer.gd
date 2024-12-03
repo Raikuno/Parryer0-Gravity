@@ -3,6 +3,7 @@ extends Node2D
 @export var label:Label
 @export var assigned_player:My_Player
 @export var timer:Timer
+@export var another_label:Label
 var tiempo = 0;
 
 
@@ -34,5 +35,6 @@ func stop_time_count():
 	set_deferred("position", Vector2(240,450)) 
 	set_deferred("scale", Vector2(2,2)) 
 	timer.stop()
+	another_label.set_deferred("visible", true)
 	await get_tree().create_timer(5).timeout
 	get_tree().change_scene_to_file("res://Scenes/Stages/Title.tscn")

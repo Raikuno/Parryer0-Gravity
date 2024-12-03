@@ -11,43 +11,47 @@ var previous_attack:int
 
 
 func _on_pattern_timer_timeout():
-	timerPattern.stop()
-	match(spawn_chance):
-		0:
-			timerPattern.start()
-		1:
-			pattern1()
-		2:
-			patternLine()
-		3:
-			patternLineInverted()
-		4:
-			patternInOneRow()
-		5:
-			patternBox()
-		6:
-			patternArrow()
-		7:
-			patternBigFastBall()
-		8:
-			patternRandomDots()
-		9:
-			print(8)
-			patternBigSlowBall()
-		10:
-			print(9)
-			patternRandomLines()
-		11:
-			print(10)
-			pattern10RandomBalls()
-	previous_attack = spawn_chance
-	while previous_attack == spawn_chance:
-		spawn_chance = randi_range(0, MAX_SPAWNS)
+	if(BoxFireball.get_speed() >= 1.025):
+		timerPattern.stop()
+		timer.wait_time = 1.25 - (BoxFireball.get_speed()/4)
+		match(spawn_chance):
+			0:
+				timerPattern.start()
+			1:
+				pattern1()
+			2:
+				patternLine()
+			3:
+				patternLineInverted()
+			4:
+				patternInOneRow()
+			5:
+				patternBox()
+			6:
+				patternArrow()
+			7:
+				patternBigFastBall()
+			8:
+				patternRandomDots()
+			9:
+				print(8)
+				patternBigSlowBall()
+			10:
+				print(9)
+				patternRandomLines()
+			11:
+				print(10)
+				pattern10RandomBalls()
+		previous_attack = spawn_chance
+		while previous_attack == spawn_chance:
+			spawn_chance = randi_range(0, MAX_SPAWNS)
 		
 func _on_fireball_timer_timeout():
-	generateSingleFireBall(randi_range(0,20), "FAST")
-	if timer.wait_time > 0.3:
-		timer.wait_time = timer.wait_time - 0.01
+	if(BoxFireball.get_speed() >= 1.025):
+		generateSingleFireBall(randi_range(0,20), "FAST")
+		if timer.wait_time > 0.3:
+			timer.wait_time = timer.wait_time - 0.01
+		timer.wait_time = 1.25 - (BoxFireball.get_speed()/4)
 	#randomMode(randi_range(0, 20))
 
 func generateSingleFireBall(progress:int, speed:String):
@@ -71,8 +75,7 @@ func generateHorde(quantity:int, location:Array, time:Array, speed:Array):
 
 func randomMode(quantity:int):
 	for i in quantity:
-		var random_ratio = float(randi_range(0, NUMBER_OF_POSITIONS)/NUMBER_OF_POSITIONS) 
-		timer.wait_time = 1.25 - (Jose_Miguel.get_speed()/4)
+		var random_ratio = float(randi_range(0, NUMBER_OF_POSITIONS)/NUMBER_OF_POSITIONS)
 		var fireball = fireball_scene.instantiate()
 		var speeds = ["SLOW", "MEDIUM", "FAST"]
 		var randomVelocity = randi_range(0,2)
@@ -83,7 +86,6 @@ func randomMode(quantity:int):
 		fireball.position = fireballLocation.position
 		fireball.setSpeed(speeds[randomVelocity])
 		add_sibling(fireball)
-		timer.wait_time = 0.75 - (Jose_Miguel.get_speed()/4)
 		await get_tree().create_timer(timer.get_wait_time()).timeout
 
 func pattern1():
@@ -199,7 +201,7 @@ func patternRandomLines():
 	var quantity:int
 	var speed:Array
 	var firstBall = randi_range(8,14)
-	quantity = 4
+	quantity = 9
 	location = [firstBall, firstBall , firstBall , firstBall + 3,firstBall + 3,firstBall + 3 ,firstBall - 5 ,firstBall - 5 ,firstBall - 5 ]
 	time = [0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2]
 	speed = ["MEDIUM", "MEDIUM", "MEDIUM", "MEDIUM", "MEDIUM", "MEDIUM", "MEDIUM", "MEDIUM", "MEDIUM"]
@@ -210,7 +212,7 @@ func pattern10RandomBalls():
 	var location:Array
 	var quantity:int
 	var speed:Array
-	quantity = 4
+	quantity = 10
 	location = [randi_range(3,17), randi_range(3,17) , randi_range(3,17), randi_range(3,10), randi_range(3,10), randi_range(8,17) , randi_range(8,17) , randi_range(15,20), randi_range(0,5), randi_range(3,17) ]
 	time = [0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2]
 	speed = ["FAST", "MEDIUM", "LOW", "FAST", "MEDIUM", "LOW", "FAST", "FAST", "LOW", "MEDIUM"]

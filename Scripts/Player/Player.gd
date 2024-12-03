@@ -73,7 +73,7 @@ func invertGravity():
 		playerColor = RED
 	else:
 		rotation = 0  
-		playerColor = BLUE		
+		playerColor = BLUE
 	
 
 func resetCombo():

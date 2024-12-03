@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dc6bu52vi04kx"]
+[gd_scene load_steps=11 format=3 uid="uid://dc6bu52vi04kx"]
 
 [ext_resource type="PackedScene" uid="uid://xgbyun8ral8w" path="res://Scenes/Objects/GroundB.tscn" id="1_ekups"]
 [ext_resource type="PackedScene" uid="uid://bwn00rgolturm" path="res://Scenes/Objects/Background.tscn" id="1_fa6pp"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bqj3d81oyallf" path="res://Scenes/Objects/GroundA.tscn" id="8_4wge6"]
 [ext_resource type="PackedScene" uid="uid://dx1xowap5t2gc" path="res://Scenes/Objects/UI/Timer/Timer.tscn" id="8_ye424"]
 [ext_resource type="PackedScene" uid="uid://bp40hqxqhr1hg" path="res://Scenes/Objects/UI/HitWindow.tscn" id="9_jbw12"]
+[ext_resource type="PackedScene" uid="uid://d1po0hirpysdv" path="res://Scenes/sound/BGM.tscn" id="10_ipl2q"]
 
 [node name="Main_Stage" type="Node2D"]
 
@@ -26,9 +27,6 @@ invert_gravity = true
 [node name="GameSpeed" parent="." instance=ExtResource("5_fam0f")]
 position = Vector2(246, 416)
 
-[node name="Player" parent="." instance=ExtResource("2_jgx66")]
-position = Vector2(82, 795)
-
 [node name="Ground" parent="." node_paths=PackedStringArray("assigned_player") instance=ExtResource("1_ekups")]
 position = Vector2(250, 25)
 scale = Vector2(1, -1)
@@ -45,3 +43,8 @@ assigned_player = NodePath("../Player")
 [node name="HitWindow" parent="." node_paths=PackedStringArray("assigned_player") instance=ExtResource("9_jbw12")]
 position = Vector2(240, 450)
 assigned_player = NodePath("../Player")
+
+[node name="Player" parent="." instance=ExtResource("2_jgx66")]
+position = Vector2(79, 795)
+
+[node name="BGM" parent="." instance=ExtResource("10_ipl2q")]

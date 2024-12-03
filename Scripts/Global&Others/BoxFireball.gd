@@ -1,5 +1,5 @@
 extends Node
-class_name Jose_Miguel
+class_name BoxFireballMultiplier
 
 static var global_speed = 1
 

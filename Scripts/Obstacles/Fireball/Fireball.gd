@@ -23,8 +23,8 @@ func _ready():
 	#object_speed = randf_range(base_velocity_min, base_velocity_max)
 	
 func _physics_process(delta):
-	position.x -= object_speed * delta * Jose_Miguel.get_speed()
-	position.y -= y_speed * delta * Jose_Miguel.get_speed()
+	position.x -= object_speed * delta * BoxFireball.get_speed()
+	position.y -= y_speed * delta * BoxFireball.get_speed()
 
 #Esta funcion se debe llamar desde el objeto que cree a este
 func setSpeed(speed:String):

@@ -215,19 +215,24 @@ assigned_character = NodePath("../..")
 script = ExtResource("4_6u2hp")
 assigned_character = NodePath("../..")
 
-[node name="Parry" type="Node" parent="StateMachine" node_paths=PackedStringArray("animation_player", "parry_hitbox", "parry_sound", "assigned_character")]
+[node name="Parry" type="Node" parent="StateMachine" node_paths=PackedStringArray("animation_player", "parry_hitbox", "parry_sound", "invertTime", "assigned_character")]
 script = ExtResource("6_ytnbd")
 animation_player = NodePath("../../AnimationPlayer")
 parry_hitbox = NodePath("../../AreaOfParry/ParryHitbox")
 parry_sound = NodePath("../../ParryTEMP")
+invertTime = NodePath("../../Timer")
 assigned_character = NodePath("../..")
 
 [node name="ParryTEMP" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_y5x8p")
-volume_db = -20.0
+volume_db = -30.0
 
 [node name="HitTEMP" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_wgyxo")
-volume_db = -20.0
+volume_db = -30.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
 
 [connection signal="area_entered" from="AreaOfParry" to="StateMachine/Parry" method="parry_collision"]
+[connection signal="timeout" from="Timer" to="StateMachine/Parry" method="invert_enable"]

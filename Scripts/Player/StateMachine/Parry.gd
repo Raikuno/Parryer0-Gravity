@@ -3,8 +3,8 @@ extends State
 @export var animation_player:AnimationPlayer
 @export var parry_hitbox:CollisionShape2D
 @export var parry_sound:AudioStreamPlayer
-
-
+@onready var can_invert = true
+@export var invertTime:Timer
 #(Override) Anula la funcion de State
 func onEnter():
 	if(not animation_player.animation_finished.is_connected(parry_ended)):
@@ -32,9 +32,14 @@ func parry_collision(area:Area2D):
 		parry_sound.play()
 		assigned_character.parry_succeded()
 		area.parried(assigned_character)
-		if(area.can_bounce()):
+		if(area.can_bounce()&&can_invert):
+			can_invert = false
+			invertTime.start()
 			assigned_character.invertGravity()
 		assigned_character.resetParry()
 		assigned_character.hit_stop(0.05, 0.2)
 		state_swap.emit(name, "air")
 
+func invert_enable():
+	can_invert = true
+	invertTime.stop()

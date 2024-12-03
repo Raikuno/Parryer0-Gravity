@@ -136,6 +136,7 @@ _data = {
 }
 
 [node name="HitWindow" type="Node2D" node_paths=PackedStringArray("animation_player", "sprite")]
+z_index = 11
 script = ExtResource("1_twksp")
 animation_player = NodePath("AnimationPlayer")
 sprite = NodePath("Sprite2D")

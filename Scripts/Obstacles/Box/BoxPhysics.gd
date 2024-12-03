@@ -22,7 +22,7 @@ func _ready():
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
-		velocity.y += gravity * delta * Jose_Miguel.get_speed()
+		velocity.y += gravity * delta * BoxFireball.get_speed()
 	velocity.x = -SPEED
 	if alive:
 		move_and_slide()

@@ -1,8 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://bib0mtl1qtcaf"]
+[gd_scene load_steps=6 format=3 uid="uid://bib0mtl1qtcaf"]
 
-[ext_resource type="Script" path="res://Scripts/Global&Others/Title.gd" id="1_b2jv5"]
 [ext_resource type="PackedScene" uid="uid://dporvxpsedrhj" path="res://Scenes/Objects/UI/Buttons/Button.tscn" id="1_cvi5j"]
-[ext_resource type="PackedScene" uid="uid://d1po0hirpysdv" path="res://Scenes/sound/BGM.tscn" id="2_jorbq"]
 [ext_resource type="PackedScene" uid="uid://bwn00rgolturm" path="res://Scenes/Objects/Background.tscn" id="2_l4npn"]
 [ext_resource type="FontFile" uid="uid://emxygyo61qsj" path="res://Resources/Fonts/04B_30__.TTF" id="3_7ixc6"]
 [ext_resource type="Texture2D" uid="uid://c11c0h57y1di" path="res://Resources/Aseprite/parrieroLogo.png" id="5_yaqvm"]
@@ -12,8 +10,6 @@ font = ExtResource("3_7ixc6")
 font_color = Color(0.337255, 0.568627, 0.905882, 1)
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_b2jv5")
-music_node = ExtResource("2_jorbq")
 
 [node name="Background" parent="." instance=ExtResource("2_l4npn")]
 position = Vector2(-394, -223)
