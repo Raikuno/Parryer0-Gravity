@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bib0mtl1qtcaf"]
+[gd_scene load_steps=7 format=3 uid="uid://bib0mtl1qtcaf"]
 
 [ext_resource type="PackedScene" uid="uid://dporvxpsedrhj" path="res://Scenes/Objects/UI/Buttons/Button.tscn" id="1_cvi5j"]
 [ext_resource type="PackedScene" uid="uid://bwn00rgolturm" path="res://Scenes/Objects/Background.tscn" id="2_l4npn"]
@@ -8,6 +8,9 @@
 [sub_resource type="LabelSettings" id="LabelSettings_bd752"]
 font = ExtResource("3_7ixc6")
 font_color = Color(0.337255, 0.568627, 0.905882, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tpcuh"]
+font = ExtResource("3_7ixc6")
 
 [node name="Node2D" type="Node2D"]
 
@@ -48,3 +51,10 @@ offset_bottom = 891.0
 text = "            Made By: 
   Raikuno              PPKRex"
 label_settings = SubResource("LabelSettings_bd752")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 83.0
+offset_top = 432.0
+offset_right = 268.0
+offset_bottom = 455.0
+label_settings = SubResource("LabelSettings_tpcuh")

@@ -215,5 +215,5 @@ func pattern10RandomBalls():
 	quantity = 10
 	location = [randi_range(3,17), randi_range(3,17) , randi_range(3,17), randi_range(3,10), randi_range(3,10), randi_range(8,17) , randi_range(8,17) , randi_range(15,20), randi_range(0,5), randi_range(3,17) ]
 	time = [0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2]
-	speed = ["FAST", "MEDIUM", "LOW", "FAST", "MEDIUM", "LOW", "FAST", "FAST", "LOW", "MEDIUM"]
+	speed = ["FAST", "MEDIUM", "SLOW", "FAST", "MEDIUM", "SLOW", "FAST", "FAST", "SLOW", "MEDIUM"]
 	generateHorde(quantity, location, time, speed)	
