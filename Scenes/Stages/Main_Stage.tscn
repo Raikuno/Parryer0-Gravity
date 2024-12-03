@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dc6bu52vi04kx"]
+[gd_scene load_steps=12 format=3 uid="uid://dc6bu52vi04kx"]
 
 [ext_resource type="PackedScene" uid="uid://xgbyun8ral8w" path="res://Scenes/Objects/GroundB.tscn" id="1_ekups"]
 [ext_resource type="PackedScene" uid="uid://bwn00rgolturm" path="res://Scenes/Objects/Background.tscn" id="1_fa6pp"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dx1xowap5t2gc" path="res://Scenes/Objects/UI/Timer/Timer.tscn" id="8_ye424"]
 [ext_resource type="PackedScene" uid="uid://bp40hqxqhr1hg" path="res://Scenes/Objects/UI/HitWindow.tscn" id="9_jbw12"]
 [ext_resource type="PackedScene" uid="uid://d1po0hirpysdv" path="res://Scenes/sound/BGM.tscn" id="10_ipl2q"]
+[ext_resource type="Script" path="res://Scenes/sound/BGM.gd" id="11_hw0ne"]
 
 [node name="Main_Stage" type="Node2D"]
 
@@ -48,3 +49,6 @@ assigned_player = NodePath("../Player")
 position = Vector2(79, 795)
 
 [node name="BGM" parent="." instance=ExtResource("10_ipl2q")]
+script = ExtResource("11_hw0ne")
+
+[connection signal="finished" from="BGM" to="BGM" method="_on_finished"]

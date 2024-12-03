@@ -32,12 +32,9 @@ func _on_timer_timeout():
 	print("TIEMPO: ", tiempo);
 
 func stop_time_count():
-	var scene = load("res://Scenes/Stages/Title.tscn")
-	var loaded_scene = scene.instantiate()
 	set_deferred("position", Vector2(240,450)) 
 	set_deferred("scale", Vector2(2,2)) 
 	timer.stop()
 	another_label.set_deferred("visible", true)
 	await get_tree().create_timer(5).timeout
-	
-	get_tree().change_scene_to_packed(loaded_scene)
+	get_tree().change_scene_to_file("res://Scenes/Stages/Title.tscn")
