@@ -1,21 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://bib0mtl1qtcaf"]
+[gd_scene load_steps=8 format=3 uid="uid://bib0mtl1qtcaf"]
 
 [ext_resource type="Script" path="res://Scripts/Global&Others/Title.gd" id="1_b2jv5"]
 [ext_resource type="PackedScene" uid="uid://dporvxpsedrhj" path="res://Scenes/Objects/UI/Buttons/Button.tscn" id="1_cvi5j"]
 [ext_resource type="PackedScene" uid="uid://d1po0hirpysdv" path="res://Scenes/sound/BGM.tscn" id="2_jorbq"]
 [ext_resource type="PackedScene" uid="uid://bwn00rgolturm" path="res://Scenes/Objects/Background.tscn" id="2_l4npn"]
 [ext_resource type="FontFile" uid="uid://emxygyo61qsj" path="res://Resources/Fonts/04B_30__.TTF" id="3_7ixc6"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_me5nc"]
-font = ExtResource("3_7ixc6")
-font_size = 34
+[ext_resource type="Texture2D" uid="uid://c11c0h57y1di" path="res://Resources/Aseprite/parrieroLogo.png" id="5_yaqvm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bd752"]
 font = ExtResource("3_7ixc6")
 font_color = Color(0.337255, 0.568627, 0.905882, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_y73ai"]
-font = ExtResource("3_7ixc6")
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_b2jv5")
@@ -25,29 +19,36 @@ music_node = ExtResource("2_jorbq")
 position = Vector2(-394, -223)
 
 [node name="Button" parent="." instance=ExtResource("1_cvi5j")]
-position = Vector2(244, 452)
+position = Vector2(242, 636)
 
-[node name="Title" type="Label" parent="."]
-offset_left = 9.0
-offset_top = 65.0
-offset_right = 559.0
-offset_bottom = 178.0
-text = "PARRIERO NOMBRE 
-PROVISIONAL"
-label_settings = SubResource("LabelSettings_me5nc")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(246, 169)
+scale = Vector2(5, 5)
+texture = ExtResource("5_yaqvm")
+metadata/_aseprite_wizard_interface_config_ = {
+"output_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://Resources/Aseprite",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://Resources/Aseprite/parrieroLogo.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "e575d85bec0095e460794c7894f30961"
 
 [node name="Credits" type="Label" parent="."]
-offset_left = 22.0
-offset_top = 853.0
-offset_right = 354.0
-offset_bottom = 880.0
-text = "Made By: Raikuno  PPKRex"
+offset_left = 32.0
+offset_top = 834.0
+offset_right = 431.0
+offset_bottom = 891.0
+text = "            Made By: 
+  Raikuno              PPKRex"
 label_settings = SubResource("LabelSettings_bd752")
-
-[node name="Label" type="Label" parent="."]
-offset_left = 133.0
-offset_top = 509.0
-offset_right = 361.0
-offset_bottom = 532.0
-text = "Maintain to select"
-label_settings = SubResource("LabelSettings_y73ai")

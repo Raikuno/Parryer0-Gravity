@@ -10,7 +10,6 @@ func _ready():
 	assigned_player.death.connect(showDeath)
 
 func showDeath():
-	print("semen")
 	sprite.set_deferred("visible", true)
 	animation_player.play('Game Over')
 

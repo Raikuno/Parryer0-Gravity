@@ -1,6 +1,6 @@
 extends Path2D
 
-const MAX_SPAWNS = 8
+const MAX_SPAWNS = 11
 const NUMBER_OF_POSITIONS = 20.0
 @onready var spawn_chance = randi_range(0,  MAX_SPAWNS)
 @export var fireball_scene: PackedScene
@@ -12,40 +12,39 @@ var previous_attack:int
 
 func _on_pattern_timer_timeout():
 	timerPattern.stop()
-	print('EL PATRON BRRR')
 	match(spawn_chance):
 		0:
 			timerPattern.start()
 		1:
 			pattern1()
-			print("pattern 1")
 		2:
 			patternLine()
-			print("pattern Line")
 		3:
 			patternLineInverted()
-			print("pattern Line Inverted")
 		4:
 			patternInOneRow()
-			print('pattern in one row')
 		5:
 			patternBox()
-			print('pattern Box')
 		6:
 			patternArrow()
-			print('pattern Arrow')
 		7:
 			patternBigFastBall()
-			print('pattern bigfast')
 		8:
 			patternRandomDots()
-			print('pattern dots')
+		9:
+			print(8)
+			patternBigSlowBall()
+		10:
+			print(9)
+			patternRandomLines()
+		11:
+			print(10)
+			pattern10RandomBalls()
 	previous_attack = spawn_chance
 	while previous_attack == spawn_chance:
 		spawn_chance = randi_range(0, MAX_SPAWNS)
 		
 func _on_fireball_timer_timeout():
-	print('BOLA DE FUEGO')
 	generateSingleFireBall(randi_range(0,20), "FAST")
 	if timer.wait_time > 0.3:
 		timer.wait_time = timer.wait_time - 0.01
@@ -129,9 +128,9 @@ func patternInOneRow():
 	var quantity:int
 	var speed:Array
 	
-	quantity = 20
-	location = [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
-	time = [0.1, 0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1, 1]
+	quantity = 16
+	location = [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+	time = [0.15, 0.15,0.15,0.15,0.15,0.15,0.15,0.15,0.15,0.15,0.15,0.15,0.15,0.15,0.15, 1]
 	speed = ["MEDIUM", "MEDIUM", "MEDIUM", "MEDIUM", "MEDIUM", "MEDIUM", "MEDIUM", "MEDIUM", "MEDIUM", "MEDIUM","MEDIUM", "MEDIUM", "MEDIUM", "MEDIUM", "MEDIUM","MEDIUM", "MEDIUM", "MEDIUM", "MEDIUM", "MEDIUM"]
 	generateHorde(quantity, location, time, speed)	
 
@@ -180,4 +179,39 @@ func patternRandomDots():
 	location = [2, 4, 19, 17, 8, 10, 15,14]
 	time = [0,0.1,0,0.1,0,0.1,0,0.5]
 	speed = ["FAST", "FAST", "FAST", "FAST","FAST", "FAST", "FAST", "FAST"]
+	generateHorde(quantity, location, time, speed)	
+	
+func patternBigSlowBall():
+	var time:Array
+	var location:Array
+	var quantity:int
+	var speed:Array
+	var firstBall = randi_range(4,16)
+	quantity = 4
+	location = [firstBall, firstBall + 1,firstBall -1, firstBall]
+	time = [0.15,0,0.2,0.5]
+	speed = ["SLOW", "SLOW", "SLOW", "SLOW"]
+	generateHorde(quantity, location, time, speed)	
+	
+func patternRandomLines():
+	var time:Array
+	var location:Array
+	var quantity:int
+	var speed:Array
+	var firstBall = randi_range(8,14)
+	quantity = 4
+	location = [firstBall, firstBall , firstBall , firstBall + 3,firstBall + 3,firstBall + 3 ,firstBall - 5 ,firstBall - 5 ,firstBall - 5 ]
+	time = [0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2]
+	speed = ["MEDIUM", "MEDIUM", "MEDIUM", "MEDIUM", "MEDIUM", "MEDIUM", "MEDIUM", "MEDIUM", "MEDIUM"]
+	generateHorde(quantity, location, time, speed)	
+
+func pattern10RandomBalls():
+	var time:Array
+	var location:Array
+	var quantity:int
+	var speed:Array
+	quantity = 4
+	location = [randi_range(3,17), randi_range(3,17) , randi_range(3,17), randi_range(3,10), randi_range(3,10), randi_range(8,17) , randi_range(8,17) , randi_range(15,20), randi_range(0,5), randi_range(3,17) ]
+	time = [0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2]
+	speed = ["FAST", "MEDIUM", "LOW", "FAST", "MEDIUM", "LOW", "FAST", "FAST", "LOW", "MEDIUM"]
 	generateHorde(quantity, location, time, speed)	

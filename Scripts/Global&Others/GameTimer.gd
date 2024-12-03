@@ -4,6 +4,8 @@ extends Node2D
 @export var assigned_player:My_Player
 @export var timer:Timer
 var tiempo = 0;
+
+
 func _ready():
 	assigned_player.death.connect(stop_time_count)
 
@@ -29,4 +31,8 @@ func _on_timer_timeout():
 	print("TIEMPO: ", tiempo);
 
 func stop_time_count():
+	set_deferred("position", Vector2(240,450)) 
+	set_deferred("scale", Vector2(2,2)) 
 	timer.stop()
+	await get_tree().create_timer(5).timeout
+	get_tree().change_scene_to_file("res://Scenes/Stages/Title.tscn")
