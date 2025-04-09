@@ -105,7 +105,7 @@ func kill_player():
 	var particle = death_particle.instantiate()
 	if particle.has_method("show_death"):
 		particle.show_death(playerColor, velocity.y)
-		particle.set_deferred("position",position)
+		particle.set_position(position)
 		add_sibling(particle)
 	set_deferred("visible", false)
 	set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)
