@@ -24,6 +24,7 @@ BoxFireball="*res://Scripts/Global&Others/BoxFireball.gd"
 window/size/viewport_width=480
 window/size/viewport_height=900
 window/stretch/mode="canvas_items"
+window/handheld/orientation=1
 
 [editor_plugins]
 
