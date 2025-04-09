@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3wdj6drmrrwb"
-path="res://.godot/imported/parrieroFullLogo.png-df2667c999ca3d69053bdf1368702f81.ctex"
+uid="uid://bc1cf1q6l3srw"
+path="res://.godot/imported/ParrieroFullLogoExpanded.png-632926f589c33f405d493f070a4791c5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Logo/parrieroFullLogo.png"
-dest_files=["res://.godot/imported/parrieroFullLogo.png-df2667c999ca3d69053bdf1368702f81.ctex"]
+source_file="res://Resources/Logo/ParrieroFullLogoExpanded.png"
+dest_files=["res://.godot/imported/ParrieroFullLogoExpanded.png-632926f589c33f405d493f070a4791c5.ctex"]
 
 [params]
 
