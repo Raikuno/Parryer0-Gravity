@@ -15,4 +15,3 @@ func _on_hit_player(body):
 
 func _on_enemy_parry(player:My_Player):
 	enemy.startParryAnimation()
-

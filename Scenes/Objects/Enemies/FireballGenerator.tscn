@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://duquydojdjjt1"]
 
-[ext_resource type="Script" path="res://Scripts/Obstacles/Fireball/Generator.gd" id="1_rr5jd"]
+[ext_resource type="Script" uid="uid://b3uj7u60siufb" path="res://Scripts/Obstacles/Fireball/Generator.gd" id="1_rr5jd"]
 [ext_resource type="PackedScene" uid="uid://daduy2bk4jkd0" path="res://Scenes/Objects/Enemies/Fireball.tscn" id="2_vsaq4"]
 
 [sub_resource type="Curve2D" id="Curve2D_t1erg"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://wtkgvp1y6rve"]
 
-[ext_resource type="Script" path="res://Scripts/Obstacles/Box/BoxEnemy.gd" id="1_7crk8"]
-[ext_resource type="Script" path="res://Scripts/Obstacles/Box/BoxPhysics.gd" id="1_ottun"]
+[ext_resource type="Script" uid="uid://duabmuxkpfqdm" path="res://Scripts/Obstacles/Box/BoxEnemy.gd" id="1_7crk8"]
+[ext_resource type="Script" uid="uid://dcoltpi10bg3g" path="res://Scripts/Obstacles/Box/BoxPhysics.gd" id="1_ottun"]
 [ext_resource type="Texture2D" uid="uid://cqohti0d5vthb" path="res://Resources/Aseprite/RobotEnemies.png" id="3_gxyo2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n5thk"]
@@ -101,12 +101,12 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bpakb"]
 _data = {
-"Death": SubResource("Animation_krcj4"),
-"Death_Red": SubResource("Animation_1p6xd"),
-"Hit": SubResource("Animation_778gy"),
-"Hit_Red": SubResource("Animation_k6b13"),
-"Idle": SubResource("Animation_gqyks"),
-"Idle_Red": SubResource("Animation_cj6x0")
+&"Death": SubResource("Animation_krcj4"),
+&"Death_Red": SubResource("Animation_1p6xd"),
+&"Hit": SubResource("Animation_778gy"),
+&"Hit_Red": SubResource("Animation_k6b13"),
+&"Idle": SubResource("Animation_gqyks"),
+&"Idle_Red": SubResource("Animation_cj6x0")
 }
 
 [node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("animation", "sprite")]

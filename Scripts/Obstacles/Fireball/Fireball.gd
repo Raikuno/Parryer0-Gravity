@@ -60,4 +60,3 @@ func _on_enemy_parry(player:My_Player):
 	object_speed = 0
 	y_speed = 0
 	#sprite.look_at(opposite_position)
-

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dporvxpsedrhj"]
 
-[ext_resource type="Script" path="res://Scripts/Global&Others/Button.gd" id="1_kwdtm"]
+[ext_resource type="Script" uid="uid://c8lt0qce4t1hk" path="res://Scripts/Global&Others/Button.gd" id="1_kwdtm"]
 [ext_resource type="Texture2D" uid="uid://olgc2l6wm5aw" path="res://Resources/Aseprite/PlayButtonV1.png" id="2_0t27o"]
 
 [sub_resource type="Animation" id="Animation_snxbo"]
@@ -36,8 +36,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uly1b"]
 _data = {
-"Idle": SubResource("Animation_snxbo"),
-"Play": SubResource("Animation_8xrkt")
+&"Idle": SubResource("Animation_snxbo"),
+&"Play": SubResource("Animation_8xrkt")
 }
 
 [node name="Button" type="Node2D" node_paths=PackedStringArray("animation_node")]

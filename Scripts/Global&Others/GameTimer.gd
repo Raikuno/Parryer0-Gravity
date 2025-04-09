@@ -37,4 +37,6 @@ func stop_time_count():
 	timer.stop()
 	another_label.set_deferred("visible", true)
 	await get_tree().create_timer(5).timeout
+	BoxFireball.reset_speed()
 	get_tree().change_scene_to_file("res://Scenes/Stages/Title.tscn")
+	

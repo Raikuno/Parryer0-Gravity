@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dfa1w0k7m4liu"]
 
-[ext_resource type="Script" path="res://Scripts/Obstacles/Box/BoxGenerator.gd" id="1_80wts"]
+[ext_resource type="Script" uid="uid://bef8xgwcx20ke" path="res://Scripts/Obstacles/Box/BoxGenerator.gd" id="1_80wts"]
 [ext_resource type="PackedScene" uid="uid://wtkgvp1y6rve" path="res://Scenes/Objects/Enemies/BoxEnemy.tscn" id="2_gvsg1"]
 
 [node name="BoxGenerator" type="Node2D" node_paths=PackedStringArray("timer")]

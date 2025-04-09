@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://bp40hqxqhr1hg"]
 
 [ext_resource type="Texture2D" uid="uid://cl4j4jdf2t14r" path="res://Resources/Aseprite/HitWindowV1.png" id="1_hrd5p"]
-[ext_resource type="Script" path="res://Scripts/Floor&Stage/HitWindow.gd" id="1_twksp"]
+[ext_resource type="Script" uid="uid://dwu742yaqtsf5" path="res://Scripts/Floor&Stage/HitWindow.gd" id="1_twksp"]
 
 [sub_resource type="Animation" id="Animation_ayu3w"]
 length = 0.64
@@ -125,14 +125,14 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wvjya"]
 _data = {
-"Game Over": SubResource("Animation_ayu3w"),
-"Hit": SubResource("Animation_fqj2k"),
-"Parry": SubResource("Animation_4kybn"),
-"Parry2": SubResource("Animation_vjvdp"),
-"Parry3": SubResource("Animation_a8882"),
-"Parry4": SubResource("Animation_w7na2"),
-"Parry5": SubResource("Animation_sjqng"),
-"Parry6": SubResource("Animation_mssq6")
+&"Game Over": SubResource("Animation_ayu3w"),
+&"Hit": SubResource("Animation_fqj2k"),
+&"Parry": SubResource("Animation_4kybn"),
+&"Parry2": SubResource("Animation_vjvdp"),
+&"Parry3": SubResource("Animation_a8882"),
+&"Parry4": SubResource("Animation_w7na2"),
+&"Parry5": SubResource("Animation_sjqng"),
+&"Parry6": SubResource("Animation_mssq6")
 }
 
 [node name="HitWindow" type="Node2D" node_paths=PackedStringArray("animation_player", "sprite")]

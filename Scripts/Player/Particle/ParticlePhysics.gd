@@ -13,4 +13,3 @@ func show_death(player_color:String, initial_speed:float):
 		set_deferred("initial_velocity_min", -initial_speed/2)
 		set_deferred("initial_velocity_max", -initial_speed/2)
 	set_deferred("emitting", true)
-

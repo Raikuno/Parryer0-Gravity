@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bwn00rgolturm"]
 
-[ext_resource type="Script" path="res://Scripts/Floor&Stage/Background.gd" id="1_xrkv1"]
+[ext_resource type="Script" uid="uid://di3rnydd1dgj4" path="res://Scripts/Floor&Stage/Background.gd" id="1_xrkv1"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_i27e3"]
 load_path = "res://.godot/imported/BackgroundStarsV2.png-7f7a68b47e3b284d8acdb221c0cdab80.ctex"
@@ -23,7 +23,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n132b"]
 _data = {
-"default": SubResource("Animation_4cmn5")
+&"default": SubResource("Animation_4cmn5")
 }
 
 [node name="Background" type="Node2D" node_paths=PackedStringArray("sprite", "timer")]

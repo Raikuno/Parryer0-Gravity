@@ -9,3 +9,6 @@ static func get_speed():
 
 static func speed_up():
 	global_speed +=0.005
+
+static func reset_speed():
+	global_speed = 1

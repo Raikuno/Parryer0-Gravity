@@ -13,5 +13,3 @@ func process(delta):
 	
 	if(assigned_character.velocity.y != 0):
 		state_swap.emit(name, "air")
-
-

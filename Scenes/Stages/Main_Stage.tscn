@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dx1xowap5t2gc" path="res://Scenes/Objects/UI/Timer/Timer.tscn" id="8_ye424"]
 [ext_resource type="PackedScene" uid="uid://bp40hqxqhr1hg" path="res://Scenes/Objects/UI/HitWindow.tscn" id="9_jbw12"]
 [ext_resource type="PackedScene" uid="uid://d1po0hirpysdv" path="res://Scenes/sound/BGM.tscn" id="10_ipl2q"]
-[ext_resource type="Script" path="res://Scenes/sound/BGM.gd" id="11_hw0ne"]
+[ext_resource type="Script" uid="uid://b54pnr7jbehrj" path="res://Scenes/sound/BGM.gd" id="11_hw0ne"]
 
 [node name="Main_Stage" type="Node2D"]
 

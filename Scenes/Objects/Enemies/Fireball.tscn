@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://daduy2bk4jkd0"]
 
-[ext_resource type="Script" path="res://Scripts/Obstacles/Fireball/Fireball.gd" id="1_qk88i"]
+[ext_resource type="Script" uid="uid://wt5xt3vbwfbr" path="res://Scripts/Obstacles/Fireball/Fireball.gd" id="1_qk88i"]
 [ext_resource type="Texture2D" uid="uid://exf2uiw7j7d2" path="res://Resources/Aseprite/FireballV5.png" id="2_3vwy5"]
 
 [sub_resource type="Animation" id="Animation_c75qm"]
@@ -51,9 +51,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_aecmv"]
 _data = {
-"IDLE": SubResource("Animation_c75qm"),
-"explotion": SubResource("Animation_e3q6v"),
-"explotion_parry": SubResource("Animation_5r4ts")
+&"IDLE": SubResource("Animation_c75qm"),
+&"explotion": SubResource("Animation_e3q6v"),
+&"explotion_parry": SubResource("Animation_5r4ts")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gc8fi"]

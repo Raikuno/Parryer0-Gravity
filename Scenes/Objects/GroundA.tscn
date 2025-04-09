@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://bqj3d81oyallf"]
 
-[ext_resource type="Script" path="res://Scripts/Floor&Stage/Floor.gd" id="1_6glbi"]
+[ext_resource type="Script" uid="uid://bgtpp6jn5e4ml" path="res://Scripts/Floor&Stage/Floor.gd" id="1_6glbi"]
 [ext_resource type="Texture2D" uid="uid://c7ntc1xsvd3yf" path="res://Resources/Aseprite/FloorA.png" id="1_10w81"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tni6j"]
@@ -75,10 +75,10 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mq4y7"]
 _data = {
-"0_out": SubResource("Animation_ep8c2"),
-"1_out": SubResource("Animation_wgw3w"),
-"2_out": SubResource("Animation_0rmmq"),
-"3_out": SubResource("Animation_pydyu")
+&"0_out": SubResource("Animation_ep8c2"),
+&"1_out": SubResource("Animation_wgw3w"),
+&"2_out": SubResource("Animation_0rmmq"),
+&"3_out": SubResource("Animation_pydyu")
 }
 
 [node name="Ground" type="StaticBody2D" node_paths=PackedStringArray("animation_player")]
