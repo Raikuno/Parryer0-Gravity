@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dporvxpsedrhj"]
+[gd_scene load_steps=8 format=3 uid="uid://dporvxpsedrhj"]
 
 [ext_resource type="Script" uid="uid://c8lt0qce4t1hk" path="res://Scripts/Global&Others/Button.gd" id="1_kwdtm"]
 [ext_resource type="Texture2D" uid="uid://olgc2l6wm5aw" path="res://Resources/Aseprite/PlayButtonV1.png" id="2_0t27o"]
@@ -20,6 +20,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_8xrkt"]
+resource_name = "Play"
 length = 0.54
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -34,15 +35,36 @@ tracks/0/keys = {
 "values": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 52, 53]
 }
 
+[sub_resource type="Animation" id="Animation_nxkj8"]
+resource_name = "Play"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [53]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uly1b"]
 _data = {
 &"Idle": SubResource("Animation_snxbo"),
-&"Play": SubResource("Animation_8xrkt")
+&"Play": SubResource("Animation_8xrkt"),
+&"Play (2)": SubResource("Animation_nxkj8")
 }
 
-[node name="Button" type="Node2D" node_paths=PackedStringArray("animation_node")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nxkj8"]
+size = Vector2(250, 90)
+
+[node name="Button" type="Area2D" node_paths=PackedStringArray("animation_node", "collision")]
 script = ExtResource("1_kwdtm")
 animation_node = NodePath("AnimationPlayer")
+collision = NodePath("CollisionShape2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -50,7 +72,7 @@ scale = Vector2(6, 6)
 texture = ExtResource("2_0t27o")
 hframes = 8
 vframes = 7
-frame = 1
+frame = 53
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -74,8 +96,10 @@ metadata/_aseprite_wizard_source_file_hash_ = "02f2d28f30dfdf363ae20cd8f1f52d0b"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_uly1b")
+&"": SubResource("AnimationLibrary_uly1b")
 }
 autoplay = "Idle"
 
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_nxkj8")
